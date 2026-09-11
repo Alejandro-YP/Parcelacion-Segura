@@ -7,88 +7,221 @@
 
     <title>Trabajadores - Parcelación Segura</title>
 
-    <link rel="stylesheet" href="css/dashboard-style.css">
+    <link rel="stylesheet" href="../css/dashboard-style.css">
 </head>
 
 <body>
 
-    <h1>Gestión de Trabajadores</h1>
+   <body>
 
-    <button id="btnAgregar">+ Agregar trabajador</button>
-    <div id="formularioTrabajador" style="display: none;">
+    <div class="app-shell" id="appShell">
 
-    <h2>Registrar trabajador</h2>
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
 
-    <label for="nombre">Nombre completo:</label>
-    <input type="text" id="nombre" placeholder="Ingrese el nombre">
+            <div class="sidebar__header">
+                <h2>Parcelación Segura</h2>
+            </div>
 
-    <br><br>
+            <nav class="sidebar__nav">
 
-    <label for="documento">Documento:</label>
-    <input type="text" id="documento" placeholder="Ingrese el documento">
+                <a href="../dashboard.html" class="nav__item">
+                    <span class="nav__label">Dashboard</span>
+                </a>
 
-    <br><br>
+                <a href="trabajadores.html" class="nav__item active">
+                    <span class="nav__label">Trabajadores</span>
+                </a>
 
-    <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" placeholder="Ingrese el teléfono">
+                <a href="autorizaciones.html" class="nav__item">
+                    <span class="nav__label">Autorizaciones</span>
+                </a>
 
-    <br><br>
+                <a href="ingresos.html" class="nav__item">
+                    <span class="nav__label">Ingresos</span>
+                </a>
 
-    <label for="actividad">Actividad:</label>
-    <input type="text" id="actividad" placeholder="Ingrese la actividad">
+                <a href="propiedades.html" class="nav__item">
+                    <span class="nav__label">Propiedades</span>
+                </a>
 
-    <br><br>
+                <a href="empresas.html" class="nav__item">
+                    <span class="nav__label">Empresas</span>
+                </a>
 
-    <button id="btnGuardar">Guardar trabajador</button>
-    <button id="btnCancelar">Cancelar</button>
+                <a href="reportes.html" class="nav__item">
+                    <span class="nav__label">Reportes</span>
+                </a>
 
-</div>
+                <a href="alertas.html" class="nav__item">
+                    <span class="nav__label">Alertas</span>
+                </a>
 
-    <br><br>
+                <a href="usuarios.html" class="nav__item">
+                    <span class="nav__label">Usuarios</span>
+                </a>
 
-    <input
-        type="text"
-        id="buscarTrabajador"
-        placeholder="Buscar trabajador..."
-    >
+                <a href="configuracion.html" class="nav__item">
+                    <span class="nav__label">Configuración</span>
+                </a>
 
-    <br><br>
+            </nav>
 
-    <table border="1">
+        </aside>
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Documento</th>
-                <th>Teléfono</th>
-                <th>Actividad</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
 
-        <tbody id="listaTrabajadores">
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
 
-            <tr>
-                <td>1</td>
-                <td>Juan Pérez</td>
-                <td>123456789</td>
-                <td>3001234567</td>
-                <td>Construcción</td>
-                <td>Activo</td>
+            <header class="topbar">
+                <h1>Gestión de Trabajadores</h1>
+            </header>
 
-                <td>
-                    <button>Editar</button>
-                    <button>Eliminar</button>
-                </td>
-            </tr>
 
-        </tbody>
+            <section class="content">
 
-    </table>
-    <script src="js/trabajadores.js"></script>
+                <div class="page-header">
+                    <div>
+                        <h2>Trabajadores</h2>
+                        <p>Administra los trabajadores registrados en la parcelación.</p>
+                    </div>
 
+                    <button id="btnAgregar" class="btn btn--primary">
+                        + Agregar trabajador
+                    </button>
+                </div>
+
+
+                <!-- FORMULARIO -->
+                <div id="formularioTrabajador" class="panel" style="display: none;">
+
+                    <div class="panel__header">
+                        <h3>Registrar trabajador</h3>
+                    </div>
+
+                    <div class="panel__body">
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input
+                                type="text"
+                                id="nombre"
+                                placeholder="Ingrese el nombre completo"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="documento">Documento</label>
+                            <input
+                                type="text"
+                                id="documento"
+                                placeholder="Ingrese el documento"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input
+                                type="text"
+                                id="telefono"
+                                placeholder="Ingrese el teléfono"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="actividad">Actividad</label>
+                            <input
+                                type="text"
+                                id="actividad"
+                                placeholder="Ingrese la actividad"
+                            >
+                        </div>
+
+                        <div class="form-actions">
+                            <button id="btnGuardar" class="btn btn--primary">
+                                Guardar trabajador
+                            </button>
+
+                            <button id="btnCancelar" class="btn">
+                                Cancelar
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TABLA -->
+                <div class="panel">
+
+                    <div class="panel__header">
+                        <h3>Trabajadores registrados</h3>
+
+                        <input
+                            type="text"
+                            id="buscarTrabajador"
+                            placeholder="Buscar trabajador..."
+                        >
+                    </div>
+
+                    <div class="panel__body">
+
+                        <div class="table-container">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Documento</th>
+                                        <th>Teléfono</th>
+                                        <th>Actividad</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="listaTrabajadores">
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Juan Pérez</td>
+                                        <td>123456789</td>
+                                        <td>3001234567</td>
+                                        <td>Construcción</td>
+                                        <td>Activo</td>
+                                        <td>
+                                            <button class="btnEditar">
+                                                Editar
+                                            </button>
+
+                                            <button class="btnEliminar">
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="../js/trabajadores.js"></script>
+
+</body>
 </body>
 
 </html>
