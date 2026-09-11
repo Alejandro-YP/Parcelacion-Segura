@@ -1,7 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const oracledb = require("oracledb");
-
 
 const app = express();
 
@@ -13,21 +11,6 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-
-
-// ==========================================
-// CONEXIÓN A ORACLE
-// ==========================================
-
-const dbConfig = {
-
-    user: "TU_USUARIO",
-
-    password: "TU_CONTRASENA",
-
-    connectString: "localhost:1521/XEPDB1"
-
-};
 
 
 // ==========================================
@@ -47,156 +30,61 @@ app.get("/", (req, res) => {
 // RF-01 - INICIO DE SESIÓN
 // ==========================================
 
-app.post("/login", async (req, res) => {
+app.post("/login", (req, res) => {
 
-    let connection;
-
-
-    try {
-
-        // Recibir datos del frontend
-
-        const {
-            usuario,
-            contrasena
-        } = req.body;
+    const { usuario, contrasena } = req.body;
 
 
-        // Verificar campos
+    // Verificar que los campos estén completos
 
-        if (!usuario || !contrasena) {
+    if (!usuario || !contrasena) {
 
-            return res.status(400).json({
+        return res.status(400).json({
 
-                mensaje:
-                    "El usuario y la contraseña son obligatorios."
+            mensaje: "El usuario y la contraseña son obligatorios."
 
-            });
+        });
 
-        }
-
-
-        // Conectar con Oracle
-
-        connection =
-            await oracledb.getConnection(dbConfig);
+    }
 
 
-        // Buscar usuario
+    // ==========================================
+    // USUARIO DE PRUEBA
+    // ==========================================
 
-        const result =
-            await connection.execute(
+    if (
+        usuario === "admin" &&
+        contrasena === "1234"
+    ) {
 
-                `
-                SELECT
-                    id_usuario,
-                    nombre,
-                    usuario
-                FROM usuarios
-                WHERE usuario = :usuario
-                AND contrasena = :contrasena
-                `,
+        return res.status(200).json({
 
-                {
-                    usuario: usuario,
-                    contrasena: contrasena
-                },
-
-                {
-                    outFormat:
-                        oracledb.OUT_FORMAT_OBJECT
-                }
-
-            );
-
-
-        // Usuario no encontrado
-
-        if (result.rows.length === 0) {
-
-            return res.status(401).json({
-
-                mensaje:
-                    "Usuario o contraseña incorrectos."
-
-            });
-
-        }
-
-
-        // Usuario encontrado
-
-        const usuarioEncontrado =
-            result.rows[0];
-
-
-        // Respuesta al frontend
-
-        res.status(200).json({
-
-            mensaje:
-                "Inicio de sesión exitoso.",
+            mensaje: "Inicio de sesión exitoso.",
 
             usuario: {
 
-                id:
-                    usuarioEncontrado.ID_USUARIO,
+                id: 1,
 
-                nombre:
-                    usuarioEncontrado.NOMBRE,
+                nombre: "Administrador",
 
-                usuario:
-                    usuarioEncontrado.USUARIO
+                usuario: "admin"
 
             }
 
         });
 
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Error en el inicio de sesión:",
-            error
-        );
-
-
-        res.status(500).json({
-
-            mensaje:
-                "Error interno del servidor."
-
-        });
-
     }
 
 
-    finally {
+    // ==========================================
+    // DATOS INCORRECTOS
+    // ==========================================
 
-        // Cerrar conexión
+    return res.status(401).json({
 
-        if (connection) {
+        mensaje: "Usuario o contraseña incorrectos."
 
-            try {
-
-                await connection.close();
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    "Error cerrando conexión:",
-                    error
-                );
-
-            }
-
-        }
-
-    }
+    });
 
 });
 
@@ -206,7 +94,6 @@ app.post("/login", async (req, res) => {
 // ==========================================
 
 const PORT = 3000;
-
 
 app.listen(PORT, () => {
 
