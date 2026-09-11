@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +8,8 @@
   <link rel="stylesheet" href="/frontend/css/dashboard-style.css">
 </head>
 
-
 <body>
 
-  <div class="app-shell" id="appShell">
   <div class="app-shell" id="appShell">
 
     <!-- SIDEBAR comun a todas las vistas del panel.
@@ -103,7 +100,6 @@
     <!-- CONTENIDO PRINCIPAL -->
 
     <div class="app-main">
-    <div class="app-main">
 
       <header class="topbar">
 
@@ -148,7 +144,6 @@
         </div>
       </header>
 
-      <main class="view" data-view="dashboard">
       <main class="view" data-view="dashboard">
 
         <!-- KPIs.
@@ -219,7 +214,6 @@
 
         <section class="grid-main">
 
-          <div class="grid-main__col">
           <div class="grid-main__col">
 
             <!-- INGRESOS RECIENTES.
@@ -367,9 +361,7 @@
             </div>
 
           </div>
-          </div>
 
-          <div class="grid-main__col">
           <div class="grid-main__col">
 
             <!-- CTA NUEVA AUTORIZACION.
@@ -525,14 +517,9 @@
             </div>
 
           </div>
-          </div>
 
         </section>
-        </section>
 
-      </main>
-    </div>
-  </div>
       </main>
     </div>
   </div>
@@ -551,9 +538,6 @@
     function toggleSidebar() {
       appShell.classList.toggle('is-collapsed');
     }
-    function toggleSidebar() {
-      appShell.classList.toggle('is-collapsed');
-    }
 
     collapseBtn.addEventListener('click', toggleSidebar);
     menuBtn.addEventListener('click', toggleSidebar);
@@ -561,6 +545,5 @@
   </script>
 
 </body>
-
 
 </html>

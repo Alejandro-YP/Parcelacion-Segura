@@ -87,10 +87,14 @@ body {
   color: var(--color-ink);
   background: var(--color-bg);
   line-height: 1.45;
-  font-feature-settings: "tnum" 1; /* numeros tabulares alineados en tablas/KPI */
+  font-feature-settings: "tnum" 1;
+  /* numeros tabulares alineados en tablas/KPI */
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-display);
   margin: 0;
   color: var(--color-ink);
@@ -113,7 +117,8 @@ button {
   cursor: pointer;
 }
 
-img, svg {
+img,
+svg {
   display: block;
 }
 
@@ -401,10 +406,25 @@ img, svg {
   height: 20px;
 }
 
-.kpi-card--inside .kpi-card__icon { background: var(--color-status-inside-bg); color: var(--color-status-inside); }
-.kpi-card--entries .kpi-card__icon { background: var(--color-accent-soft); color: var(--color-accent-strong); }
-.kpi-card--pending .kpi-card__icon { background: var(--color-status-pending-bg); color: var(--color-status-pending); }
-.kpi-card--auth .kpi-card__icon { background: var(--color-gold-soft); color: var(--color-gold); }
+.kpi-card--inside .kpi-card__icon {
+  background: var(--color-status-inside-bg);
+  color: var(--color-status-inside);
+}
+
+.kpi-card--entries .kpi-card__icon {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+.kpi-card--pending .kpi-card__icon {
+  background: var(--color-status-pending-bg);
+  color: var(--color-status-pending);
+}
+
+.kpi-card--auth .kpi-card__icon {
+  background: var(--color-gold-soft);
+  color: var(--color-gold);
+}
 
 .kpi-card__label {
   font-size: var(--text-sm);
@@ -652,8 +672,15 @@ img, svg {
   flex-shrink: 0;
 }
 
-.alert-item--critical .alert-item__icon { color: var(--color-status-alert); background: #fff; }
-.alert-item--warning .alert-item__icon { color: var(--color-status-pending); background: #fff; }
+.alert-item--critical .alert-item__icon {
+  color: var(--color-status-alert);
+  background: #fff;
+}
+
+.alert-item--warning .alert-item__icon {
+  color: var(--color-status-pending);
+  background: #fff;
+}
 
 .alert-item__title {
   font-size: var(--text-sm);
@@ -797,10 +824,25 @@ img, svg {
   font-weight: 600;
 }
 
-.badge--inside { background: var(--color-status-inside-bg); color: var(--color-status-inside); }
-.badge--out { background: var(--color-surface-alt); color: var(--color-ink-faint); }
-.badge--alert { background: var(--color-status-alert-bg); color: var(--color-status-alert); }
-.badge--pending { background: var(--color-status-pending-bg); color: var(--color-status-pending); }
+.badge--inside {
+  background: var(--color-status-inside-bg);
+  color: var(--color-status-inside);
+}
+
+.badge--out {
+  background: var(--color-surface-alt);
+  color: var(--color-ink-faint);
+}
+
+.badge--alert {
+  background: var(--color-status-alert-bg);
+  color: var(--color-status-alert);
+}
+
+.badge--pending {
+  background: var(--color-status-pending-bg);
+  color: var(--color-status-pending);
+}
 
 .sr-only {
   position: absolute;
@@ -875,83 +917,4 @@ img, svg {
   * {
     transition: none !important;
   }
-}
-/* ================================
-   TABLA DE TRABAJADORES
-================================ */
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.table-container th,
-.table-container td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-    white-space: nowrap;
-}
-
-.table-container th {
-    font-weight: 600;
-}
-
-.table-container td {
-    vertical-align: middle;
-}
-
-/* BOTONES DE ACCIONES */
-
-.table-container .btnEditar,
-.table-container .btnEliminar {
-    padding: 7px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-right: 5px;
-}
-
-.table-container .btnEditar {
-    background: #e5e7eb;
-}
-
-.table-container .btnEliminar {
-    background: #fee2e2;
-}
-
-/* FORMULARIO */
-
-.panel__body {
-    padding: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
-}
-
-.form-group input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-}
-
-.form-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
 }
