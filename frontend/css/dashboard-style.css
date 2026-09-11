@@ -876,3 +876,116 @@ img, svg {
     transition: none !important;
   }
 }
+<<<<<<<<< Temporary merge branch 1
+/* ================================
+   TABLA DE TRABAJADORES
+================================ */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table-container th,
+.table-container td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.table-container th {
+    font-weight: 600;
+}
+
+.table-container td {
+    vertical-align: middle;
+}
+
+/* BOTONES DE ACCIONES */
+
+.table-container .btnEditar,
+.table-container .btnEliminar {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.table-container .btnEditar {
+    background: #e5e7eb;
+}
+
+.table-container .btnEliminar {
+    background: #fee2e2;
+}
+
+/* FORMULARIO */
+
+.panel__body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+=========
+
+
+
+
+/* ============ MODAL ============ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 32, 26, 0.45);
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+.modal-overlay.is-open {
+  display: flex;
+}
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-panel);
+}
+.modal select:focus,
+.modal input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+>>>>>>>>> Temporary merge branch 2
+}
