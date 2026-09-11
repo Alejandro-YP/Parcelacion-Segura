@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Parcelacion Segura</title>
-  <link rel="stylesheet" href="css/dashboard-style.css">
+  <link rel="stylesheet" href="/frontend/css/dashboard-style.css">
 </head>
 
 
@@ -21,7 +21,7 @@
     <aside class="sidebar">
       <div class="sidebar__brand">
         <div class="sidebar__brand-mark" aria-hidden="true">
-          <img src="imgs/menu-secure.png">
+          <img src="/frontend/imgs/menu-secure.png">
         </div>
         <span class="sidebar__brand-name">Parcelacion<br>Segura</span>
       </div>
@@ -33,42 +33,42 @@
         La clase is-active debe cambiar segun la pagina actual -->
 
         <a class="nav__item is-active" href="dashboard.html" data-page="dashboard">
-          <img class="nav__icon" src="imgs/menu-dashboard.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-dashboard.png" alt="">
           <span class="nav__label">Dashboard</span>
         </a>
 
         <a class="nav__item" href="trabajadores.html" data-page="trabajadores">
-          <img class="nav__icon" src="imgs/menu-trabajadores.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-trabajadores.png" alt="">
           <span class="nav__label">Trabajadores</span>
         </a>
 
         <a class="nav__item" href="autorizaciones.html" data-page="autorizaciones">
-          <img class="nav__icon" src="imgs/menu-autorizacion.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-autorizacion.png" alt="">
           <span class="nav__label">Autorizaciones</span>
         </a>
 
         <a class="nav__item" href="ingresos.html" data-page="ingresos">
-          <img class="nav__icon" src="imgs/menu-ingresos.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-ingresos.png" alt="">
           <span class="nav__label">Ingresos</span>
         </a>
 
         <a class="nav__item" href="propiedades.html" data-page="propiedades">
-          <img class="nav__icon" src="imgs/menu-propiedades.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-propiedades.png" alt="">
           <span class="nav__label">Propiedades</span>
         </a>
 
         <a class="nav__item" href="empresas.html" data-page="empresas">
-          <img class="nav__icon" src="imgs/menu-empresa.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-empresa.png" alt="">
           <span class="nav__label">Empresas</span>
         </a>
 
         <a class="nav__item" href="reportes.html" data-page="reportes">
-          <img class="nav__icon" src="imgs/menu-reportes.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-reportes.png" alt="">
           <span class="nav__label">Reportes</span>
         </a>
 
         <a class="nav__item" href="alertas.html" data-page="alertas">
-          <img class="nav__icon" src="imgs/menu-alertas.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-alertas.png" alt="">
           <span class="nav__label">Alertas</span>
 
           <!-- LOGICA.
@@ -78,12 +78,12 @@
         </a>
 
         <a class="nav__item" href="usuarios.html" data-page="usuarios">
-          <img class="nav__icon" src="imgs/menu-usuarios.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-usuarios.png" alt="">
           <span class="nav__label">Usuarios</span>
         </a>
 
         <a class="nav__item" href="configuracion.html" data-page="configuracion">
-          <img class="nav__icon" src="imgs/menu-configuracion.png" alt="">
+          <img class="nav__icon" src="/frontend/imgs/menu-configuracion.png" alt="">
           <span class="nav__label">Configuracion</span>
         </a>
       </nav>
@@ -94,7 +94,7 @@
         Este boton debe contraer o expandir el sidebar -->
 
         <button class="sidebar__collapse-btn" id="collapseBtn" type="button">
-          <img class="nav__icon" src="imgs/menu-contraer.png">
+          <img class="nav__icon" src="/frontend/imgs/menu-contraer.png">
           <span>Contraer menu</span>
         </button>
       </div>
@@ -113,7 +113,7 @@
           Este boton debe abrir o cerrar el menu lateral en dispositivos donde corresponda -->
 
           <button class="topbar__menu-btn" id="menuBtn" type="button" aria-label="Abrir/cerrar menu">
-            <img src="imgs/menu-abrir.png" alt="">
+            <img src="/frontend/imgs/menu-abrir.png" alt="">
           </button>
 
           <h1 class="topbar__title">Dashboard</h1>
@@ -125,7 +125,7 @@
           Este boton debe abrir las notificaciones del usuario -->
 
           <button class="topbar__icon-btn" type="button" aria-label="Notificaciones">
-            <img src="imgs/menu-alertas.png" alt="">
+            <img src="/frontend/imgs/menu-alertas.png" alt="">
 
             <!-- LOGICA.
             El punto debe aparecer cuando existan notificaciones nuevas o pendientes -->
@@ -138,7 +138,7 @@
             <!-- LOGICA.
             La imagen y los datos del usuario deben corresponder al usuario que inicio sesion -->
 
-            <img class="topbar__avatar" src="imgs/encabezado-user.png" alt="">
+            <img class="topbar__avatar" src="/frontend/imgs/encabezado-user.png" alt="">
 
             <div>
               <div class="topbar__user-name">Administrador</div>
@@ -162,7 +162,7 @@
 
           <article class="kpi-card kpi-card--inside">
             <div class="kpi-card__icon">
-              <img src="imgs/menu-trabajadores.png" alt="">
+              <img src="/frontend/imgs/menu-trabajadores.png" alt="">
             </div>
             <div>
               <div class="kpi-card__label">Actualmente dentro</div>
@@ -176,7 +176,7 @@
 
           <article class="kpi-card kpi-card--entries">
             <div class="kpi-card__icon">
-              <img src="imgs/menu-ingresos.png" alt="">
+              <img src="/frontend/imgs/menu-ingresos.png" alt="">
             </div>
             <div>
               <div class="kpi-card__label">Ingresos hoy</div>
@@ -190,7 +190,7 @@
 
           <article class="kpi-card kpi-card--pending">
             <div class="kpi-card__icon">
-              <img src="imgs/alerta-salida_pendiente.png" alt="">
+              <img src="/frontend/imgs/alerta-salida_pendiente.png" alt="">
             </div>
             <div>
               <div class="kpi-card__label">Pendientes de salida</div>
@@ -204,7 +204,7 @@
 
           <article class="kpi-card kpi-card--auth">
             <div class="kpi-card__icon">
-              <img src="imgs/menu-reportes.png" alt="">
+              <img src="/frontend/imgs/menu-reportes.png" alt="">
             </div>
             <div>
               <div class="kpi-card__label">Autorizaciones hoy</div>
@@ -260,7 +260,7 @@
                     <tr>
                       <td>
                         <div class="person-cell">
-                          <img class="person-cell__avatar" src="imgs/usuario.png" alt="">
+                          <img class="person-cell__avatar" src="/frontend/imgs/usuario.png" alt="">
                           <div>
                             <div class="person-cell__name">Trabajador 01</div>
                             <div class="person-cell__meta">Empresa A</div>
@@ -280,7 +280,7 @@
                     <tr>
                       <td>
                         <div class="person-cell">
-                          <img class="person-cell__avatar" src="imgs/usuario.png" alt="">
+                          <img class="person-cell__avatar" src="/frontend/imgs/usuario.png" alt="">
                           <div>
                             <div class="person-cell__name">Trabajador 02</div>
                             <div class="person-cell__meta">Empresa B</div>
@@ -326,7 +326,7 @@
 
                   <article class="live-card">
                     <div class="live-card__top">
-                      <img class="live-card__avatar" src="imgs/usuario.png" alt="">
+                      <img class="live-card__avatar" src="/frontend/imgs/usuario.png" alt="">
                       <div>
                         <div class="person-cell__name">Trabajador 01</div>
                         <div class="person-cell__meta">Propiedad 05</div>
@@ -336,7 +336,7 @@
                     <p class="live-card__activity">Actividad Mantenimiento de jardines</p>
 
                     <div class="live-card__time">
-                      <img src="imgs/alerta-salida_pendiente.png">
+                      <img src="/frontend/imgs/alerta-salida_pendiente.png">
                       Ingreso: 08:15
                     </div>
 
@@ -345,7 +345,7 @@
 
                   <article class="live-card">
                     <div class="live-card__top">
-                      <img class="live-card__avatar" src="imgs/usuario.png">
+                      <img class="live-card__avatar" src="/frontend/imgs/usuario.png">
                       <div>
                         <div class="person-cell__name">Trabajador 02</div>
                         <div class="person-cell__meta">Propiedad 12</div>
@@ -355,7 +355,7 @@
                     <p class="live-card__activity">Actividad Instalacion electrica</p>
 
                     <div class="live-card__time">
-                      <img src="imgs/alerta-salida_pendiente.png">
+                      <img src="/frontend/imgs/alerta-salida_pendiente.png">
                       Ingreso: 09:30
                     </div>
 
@@ -377,7 +377,7 @@
 
             <div class="panel cta-panel">
               <div class="cta-panel__icon" aria-hidden="true">
-                <img src="imgs/agregar-usuario.png">
+                <img src="/frontend/imgs/agregar-usuario.png">
               </div>
 
               <h2 class="cta-panel__title">Nueva autorizacion</h2>
@@ -389,7 +389,7 @@
 
               <button class="btn btn--primary btn--block" type="button"
                 onclick="window.location.href='autorizaciones.html?nueva=1'">
-                <img src="imgs/agregar-usuario.png" alt="">
+                <img src="/frontend/imgs/agregar-usuario.png" alt="">
                 Autorizar trabajador
               </button>
             </div>
@@ -418,7 +418,7 @@
 
                   <li class="alert-item alert-item--critical">
                     <span class="alert-item__icon" aria-hidden="true">
-                      <img src="imgs/alerta-usuario.png">
+                      <img src="/frontend/imgs/alerta-usuario.png">
                     </span>
 
                     <div>
@@ -429,7 +429,7 @@
 
                   <li class="alert-item alert-item--warning">
                     <span class="alert-item__icon" aria-hidden="true">
-                      <img src="imgs/alerta-salida_pendiente.png" alt="">
+                      <img src="/frontend/imgs/alerta-salida_pendiente.png" alt="">
                     </span>
 
                     <div>
@@ -467,7 +467,7 @@
                 No debe depender de una imagen estatica -->
 
                 <div class="chart-wrap">
-                  <img class="chart-image" src="imgs/grafico-de-torta.png">
+                  <img class="chart-image" src="/frontend/imgs/grafico-de-torta.png">
                 </div>
 
               </div>
@@ -488,7 +488,7 @@
                   <li class="report-item">
 
                     <span class="report-item__icon" aria-hidden="true">
-                      <img src="imgs/menu-reportes.png">
+                      <img src="/frontend/imgs/menu-reportes.png">
                     </span>
 
                     <span class="report-item__name">Ingresos por propiedad</span>
@@ -497,7 +497,7 @@
                     Este enlace debe generar o descargar el reporte real de ingresos por propiedad -->
 
                     <a class="report-item__download" href="#" aria-label="Descargar reporte de ingresos por propiedad">
-                      <img src="imgs/descargas.png">
+                      <img src="/frontend/imgs/descargas.png">
                     </a>
 
                   </li>
@@ -505,7 +505,7 @@
                   <li class="report-item">
 
                     <span class="report-item__icon" aria-hidden="true">
-                      <img src="imgs/menu-reportes.png" alt="">
+                      <img src="/frontend/imgs/menu-reportes.png" alt="">
                     </span>
 
                     <span class="report-item__name">Trabajadores actualmente dentro</span>
@@ -515,7 +515,7 @@
 
                     <a class="report-item__download" href="#"
                       aria-label="Descargar reporte de trabajadores actualmente dentro">
-                      <img src="imgs/descargas.png">
+                      <img src="/frontend/imgs/descargas.png">
                     </a>
 
                   </li>
