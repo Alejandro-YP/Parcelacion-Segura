@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autorizaciones · Parcelación Segura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- ✅ CSS: sube un nivel a /css/ y usa el nombre real -->
+  <link rel="stylesheet" href="../css/dashboard-style.css">
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14201A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1V9.5Z"/>
+        </svg>
+      </div>
+      <div class="sidebar__brand-name">Parcelacion<br>Segura</div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <!-- ✅ Dashboard está en la raíz → sube un nivel -->
+      <a class="nav__item" href="../dashboard.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span class="nav__label">Dashboard</span>
+      </a>
+
+      <!-- ✅ Mismo nivel -->
+      <a class="nav__item" href="trabajadores.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.3 2.9-6 6.5-6s6.5 2.7 6.5 6"/><path d="M16 11a3 3 0 1 0 0-6"/><path d="M22 20c0-2.5-1.6-4.6-4-5.5"/></svg>
+        <span class="nav__label">Trabajadores</span>
+      </a>
+
+      <!-- ✅ Estás en autorizaciones.html, así que este es el activo -->
+      <a class="nav__item is-active" href="autorizaciones.html">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></svg>
+        <span class="nav__label">Autorizaciones</span>
+      </a>
+
+      <a class="nav__item" href="#">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>
+        <span class="nav__label">Ingresos</span>
+      </a>
+
+      <a class="nav__item" href="#">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 12 3l9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z"/></svg>
+        <span class="nav__label">Propiedades</span>
+      </a>
+
+      <a class="nav__item" href="#">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <span class="nav__label">Empresas</span>
+      </a>
+
+      <a class="nav__item" href="#">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+        <span class="nav__label">Reportes</span>
+      </a>
+
+      <a class="nav__item" href="#">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+        <span class="nav__label">Alertas</span>
+        <span class="nav__badge">2</span>
+      </a>
+
+      <a class="nav__item" href="#">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <span class="nav__label">Usuarios</span>
+      </a>
+
+      <a class="nav__item" href="#">
+        <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+        <span class="nav__label">Configuracion</span>
+      </a>
+    </nav>
+
+    <div class="sidebar__footer">
+      <button class="sidebar__collapse-btn" id="btnCollapse">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        <span>Contraer menu</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="app-main">
+
+    <header class="topbar">
+      <div class="topbar__left">
+        <button class="topbar__menu-btn" id="btnMenu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <h1 class="topbar__title">Autorizaciones</h1>
+      </div>
+
+      <div class="topbar__right">
+        <button class="topbar__icon-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+          <span class="topbar__icon-dot"></span>
+        </button>
+        <div class="topbar__user">
+          <div class="topbar__avatar">A</div>
+          <div>
+            <div class="topbar__user-name">Administrador</div>
+            <div class="topbar__user-role">Porteria Principal</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="view">
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <div class="kpi-card kpi-card--auth">
+          <div class="kpi-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></svg>
+          </div>
+          <div>
+            <div class="kpi-card__label">Autorizaciones hoy</div>
+            <div class="kpi-card__value" id="kpiHoy">0</div>
+            <div class="kpi-card__sub">Total autorizaciones</div>
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-card--inside">
+          <div class="kpi-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.3 2.9-6 6.5-6s6.5 2.7 6.5 6"/><path d="M16 11a3 3 0 1 0 0-6"/></svg>
+          </div>
+          <div>
+            <div class="kpi-card__label">Activas ahora</div>
+            <div class="kpi-card__value" id="kpiActivas">0</div>
+            <div class="kpi-card__sub">Listas para ingresar</div>
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-card--pending">
+          <div class="kpi-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <div>
+            <div class="kpi-card__label">Pendientes de salida</div>
+            <div class="kpi-card__value" id="kpiPendientes">0</div>
+            <div class="kpi-card__sub">Sin registrar salida</div>
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-card--entries">
+          <div class="kpi-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>
+          </div>
+          <div>
+            <div class="kpi-card__label">Ingresos hoy</div>
+            <div class="kpi-card__value" id="kpiIngresos">0</div>
+            <div class="kpi-card__sub">Total de ingresos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-main">
+
+        <div class="grid-main__col">
+          <section class="panel">
+            <div class="panel__header">
+              <h2 class="panel__title">Todas las autorizaciones</h2>
+              <button class="btn btn--primary" id="btnNueva">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                Autorizar trabajador
+              </button>
+            </div>
+
+            <div style="padding: 0 var(--space-4) var(--space-3); display:flex; gap: var(--space-3); flex-wrap:wrap;">
+              <input id="buscador" type="text" placeholder="Buscar trabajador, propiedad o actividad..."
+                style="flex:1; min-width:200px; padding: 10px 14px; border:1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: var(--text-sm); background: var(--color-surface-alt);">
+              <select id="filtroEstado" class="select-chip" style="padding: 10px 14px; cursor:pointer;">
+                <option value="">Todos los estados</option>
+                <option value="activa">Activas</option>
+                <option value="dentro">Dentro</option>
+                <option value="finalizada">Finalizadas</option>
+              </select>
+            </div>
+
+            <div class="panel__body" style="padding-top:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Trabajador</th>
+                    <th>Propiedad</th>
+                    <th>Actividad</th>
+                    <th>Ingreso</th>
+                    <th>Salida</th>
+                    <th>Estado</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tbodyAutorizaciones"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <div class="grid-main__col">
+
+          <section class="panel">
+            <div class="cta-panel">
+              <div class="cta-panel__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2.5 21c0-3.6 2.9-6.5 6.5-6.5S15.5 17.4 15.5 21"/><path d="M18 8v6M21 11h-6"/></svg>
+              </div>
+              <h3 class="cta-panel__title">Nueva autorización</h3>
+              <p class="cta-panel__desc">Autoriza el ingreso de un trabajador a la parcelación.</p>
+              <button class="btn btn--primary btn--block" id="btnNueva2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                Autorizar trabajador
+              </button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel__header">
+              <h2 class="panel__title">Resumen</h2>
+            </div>
+            <div class="panel__body" style="padding-top:0;">
+              <ul class="report-list">
+                <li class="report-item">
+                  <div class="report-item__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </div>
+                  <div class="report-item__name">Activas</div>
+                  <span class="badge badge--pending" id="resActivas">0</span>
+                </li>
+                <li class="report-item">
+                  <div class="report-item__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2.5 21c0-3.6 2.9-6.5 6.5-6.5S15.5 17.4 15.5 21"/></svg>
+                  </div>
+                  <div class="report-item__name">Dentro</div>
+                  <span class="badge badge--inside" id="resDentro">0</span>
+                </li>
+                <li class="report-item">
+                  <div class="report-item__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 12 3 3 5-6"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+                  </div>
+                  <div class="report-item__name">Finalizadas</div>
+                  <span class="badge badge--out" id="resFinal">0</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalNueva">
+  <div class="modal">
+    <h2 style="margin-bottom: var(--space-4);">Nueva autorización</h2>
+    <form id="formAutorizacion">
+      <label style="display:block; font-size: var(--text-xs); color: var(--color-ink-muted); margin-bottom: 6px;">Trabajador</label>
+      <select id="trabajador" required style="width:100%; padding: 10px; border:1px solid var(--color-border); border-radius: var(--radius-sm); margin-bottom: var(--space-3); font-family:inherit;">
+        <option value="">Seleccionar trabajador...</option>
+        <option value="Trabajador 01|Empresa A">Trabajador 01 — Empresa A</option>
+        <option value="Trabajador 02|Empresa B">Trabajador 02 — Empresa B</option>
+        <option value="Trabajador 03|Empresa A">Trabajador 03 — Empresa A</option>
+      </select>
+
+      <label style="display:block; font-size: var(--text-xs); color: var(--color-ink-muted); margin-bottom: 6px;">Propiedad</label>
+      <select id="propiedad" required style="width:100%; padding: 10px; border:1px solid var(--color-border); border-radius: var(--radius-sm); margin-bottom: var(--space-3); font-family:inherit;">
+        <option value="">Seleccionar propiedad...</option>
+        <option value="Propiedad 05|Casa Quinta">Propiedad 05 — Casa Quinta</option>
+        <option value="Propiedad 12|Casa Principal">Propiedad 12 — Casa Principal</option>
+      </select>
+
+      <label style="display:block; font-size: var(--text-xs); color: var(--color-ink-muted); margin-bottom: 6px;">Actividad</label>
+      <input id="actividad" type="text" placeholder="Ej: Mantenimiento de jardines" required style="width:100%; padding: 10px; border:1px solid var(--color-border); border-radius: var(--radius-sm); margin-bottom: var(--space-3); font-family:inherit;">
+
+      <label style="display:block; font-size: var(--text-xs); color: var(--color-ink-muted); margin-bottom: 6px;">Fecha</label>
+      <input id="fecha" type="date" required style="width:100%; padding: 10px; border:1px solid var(--color-border); border-radius: var(--radius-sm); margin-bottom: var(--space-3); font-family:inherit;">
+
+      <div style="display:flex; gap: var(--space-3); margin-top: var(--space-4);">
+        <button type="button" class="btn" id="btnCancelar" style="flex:1; background: var(--color-surface-alt); border:1px solid var(--color-border); color: var(--color-ink);">Cancelar</button>
+        <button type="submit" class="btn btn--primary" style="flex:1;">Autorizar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ✅ JS: sube un nivel a /js/ -->
+<script src="../js/autorizacion.js"></script>
+</body>
+</html>
