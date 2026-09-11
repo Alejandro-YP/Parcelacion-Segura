@@ -10,7 +10,6 @@
     <title>Parcelación Segura - Iniciar sesión</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -144,7 +143,6 @@
 
             min-height: 20px;
         }
-
     </style>
 
 </head>
@@ -184,13 +182,7 @@
                     Usuario
                 </label>
 
-                <input
-                    type="text"
-                    id="usuario"
-                    name="usuario"
-                    placeholder="Ingrese su usuario"
-                    required
-                >
+                <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
 
             </div>
 
@@ -204,13 +196,7 @@
                     Contraseña
                 </label>
 
-                <input
-                    type="password"
-                    id="contrasena"
-                    name="contrasena"
-                    placeholder="Ingrese su contraseña"
-                    required
-                >
+                <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
 
             </div>
 
@@ -218,10 +204,7 @@
 
             <!-- BOTON -->
 
-            <button
-                type="submit"
-                class="login-button"
-            >
+            <button type="submit" class="login-button">
                 Iniciar sesión
             </button>
 
@@ -252,7 +235,7 @@
 
 
         // Detectar envío del formulario
-        loginForm.addEventListener("submit", async function(event) {
+        loginForm.addEventListener("submit", async function (event) {
 
             // Evitar que la página se recargue
             event.preventDefault();
@@ -313,14 +296,12 @@
 
 
                     // Ir al dashboard
-                    setTimeout(function() {
+                    setTimeout(function () {
 
                         window.location.href =
-                            "dashboard.html";
+                            "../dashboard.html";
 
                     }, 1000);
-
-
                 }
 
                 // LOGIN INCORRECTO
