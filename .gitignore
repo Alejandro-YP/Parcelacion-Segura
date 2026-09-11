@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+vendor/
+
+# Variables de entorno (NUNCA subir contraseñas)
+.env
+.env.local
+.env.*.local
+
+# Archivos de construcción
+dist/
+build/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
