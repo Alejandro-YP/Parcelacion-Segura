@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Parcelacion Segura</title>
-  <link rel="stylesheet" href="/frontend/css/dashboard-style.css">
+  <link rel="stylesheet" href="../css/dashboard-style.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <aside class="sidebar">
       <div class="sidebar__brand">
         <div class="sidebar__brand-mark" aria-hidden="true">
-          <img src="/Parcelacion-Segura/frontend/imgs/menu-secure.png" alt="">
+          <img src="../imgs/menu-secure.png" alt="">
         </div>
         <span class="sidebar__brand-name">Parcelacion<br>Segura</span>
       </div>
@@ -28,42 +28,42 @@
            La clase is-active debe cambiar segun la pagina actual. -->
 
         <a class="nav__item is-active" href="dashboard.html" data-page="dashboard">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-dashboard.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-dashboard.png" alt="">
           <span class="nav__label">Dashboard</span>
         </a>
 
         <a class="nav__item" href="trabajadores.html" data-page="trabajadores">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-trabajadores.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-trabajadores.png" alt="">
           <span class="nav__label">Trabajadores</span>
         </a>
 
         <a class="nav__item" href="autorizaciones.html" data-page="autorizaciones">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-autorizacion.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-autorizacion.png" alt="">
           <span class="nav__label">Autorizaciones</span>
         </a>
 
         <a class="nav__item" href="ingresos.html" data-page="ingresos">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-ingresos.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-ingresos.png" alt="">
           <span class="nav__label">Ingresos</span>
         </a>
 
         <a class="nav__item" href="propiedades.html" data-page="propiedades">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-propiedades.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-propiedades.png" alt="">
           <span class="nav__label">Propiedades</span>
         </a>
 
         <a class="nav__item" href="empresas.html" data-page="empresas">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-empresa.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-empresa.png" alt="">
           <span class="nav__label">Empresas</span>
         </a>
 
         <a class="nav__item" href="reportes.html" data-page="reportes">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-reportes.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-reportes.png" alt="">
           <span class="nav__label">Reportes</span>
         </a>
 
         <a class="nav__item" href="alertas.html" data-page="alertas">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-alertas.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-alertas.png" alt="">
           <span class="nav__label">Alertas</span>
           <!-- LOGICA.
              Este numero debe mostrar la cantidad real de alertas pendientes. -->
@@ -71,12 +71,12 @@
         </a>
 
         <a class="nav__item" href="usuarios.html" data-page="usuarios">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-usuarios.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-usuarios.png" alt="">
           <span class="nav__label">Usuarios</span>
         </a>
 
         <a class="nav__item" href="configuracion.html" data-page="configuracion">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-configuracion.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-configuracion.png" alt="">
           <span class="nav__label">Configuracion</span>
         </a>
       </nav>
@@ -85,7 +85,7 @@
         <!-- LOGICA.
            Este boton debe contraer o expandir el sidebar (ver script al final). -->
         <button class="sidebar__collapse-btn" id="collapseBtn" type="button">
-          <img class="nav__icon" src="/Parcelacion-Segura/frontend/imgs/menu-contraer.png" alt="">
+          <img class="nav__icon" src="../imgs/menu-contraer.png" alt="">
           <span>Contraer menu</span>
         </button>
       </div>
@@ -99,7 +99,7 @@
           <!-- LOGICA.
              Este boton debe abrir o cerrar el menu lateral en pantallas pequenas. -->
           <button class="topbar__menu-btn" id="menuBtn" type="button" aria-label="Abrir/cerrar menu">
-            <img src="/Parcelacion-Segura/frontend/imgs/menu-abrir.png" alt="">
+            <img src="../imgs/menu-abrir.png" alt="">
           </button>
           <h1 class="topbar__title">Dashboard</h1>
         </div>
@@ -108,7 +108,7 @@
           <!-- LOGICA.
              Este boton debe abrir las notificaciones del usuario. -->
           <button class="topbar__icon-btn" type="button" aria-label="Notificaciones">
-            <img src="/Parcelacion-Segura/frontend/imgs/menu-alertas.png" alt="">
+            <img src="../imgs/menu-alertas.png" alt="">
             <!-- LOGICA.
                El punto debe aparecer solo cuando existan notificaciones nuevas o pendientes. -->
             <span class="topbar__icon-dot"></span>
@@ -117,7 +117,7 @@
           <div class="topbar__user">
             <!-- LOGICA.
                La imagen y los datos deben corresponder al usuario que inicio sesion. -->
-            <img class="topbar__avatar" src="/Parcelacion-Segura/frontend/imgs/encabezado-user.png" alt="">
+            <img class="topbar__avatar" src="../imgs/encabezado-user.png" alt="">
             <div>
               <div class="topbar__user-name">Administrador</div>
               <div class="topbar__user-role">Porteria Principal</div>
@@ -135,7 +135,7 @@
           <!-- LOGICA.
              Cantidad de trabajadores que actualmente tienen un ingreso abierto (sin salida). -->
           <article class="kpi-card kpi-card--inside">
-            <div class="kpi-card__icon"><img src="/Parcelacion-Segura/frontend/imgs/menu-trabajadores.png" alt=""></div>
+            <div class="kpi-card__icon"><img src="../imgs/menu-trabajadores.png" alt=""></div>
             <div>
               <div class="kpi-card__label">Actualmente dentro</div>
               <div class="kpi-card__value">2</div>
@@ -146,7 +146,7 @@
           <!-- LOGICA.
              Total de ingresos registrados durante el dia actual. -->
           <article class="kpi-card kpi-card--entries">
-            <div class="kpi-card__icon"><img src="/Parcelacion-Segura/frontend/imgs/menu-ingresos.png" alt=""></div>
+            <div class="kpi-card__icon"><img src="../imgs/menu-ingresos.png" alt=""></div>
             <div>
               <div class="kpi-card__label">Ingresos hoy</div>
               <div class="kpi-card__value">2</div>
@@ -157,7 +157,7 @@
           <!-- LOGICA.
              Trabajadores con ingreso registrado que aun no tienen salida. -->
           <article class="kpi-card kpi-card--pending">
-            <div class="kpi-card__icon"><img src="/Parcelacion-Segura/frontend/imgs/alerta-salida_pendiente.png" alt=""></div>
+            <div class="kpi-card__icon"><img src="../imgs/alerta-salida_pendiente.png" alt=""></div>
             <div>
               <div class="kpi-card__label">Pendientes de salida</div>
               <div class="kpi-card__value">2</div>
@@ -171,7 +171,7 @@
              icono propio de autorizacion (por ejemplo menu-autorizacion.png, ya usado
              en el sidebar) puede encajar mejor aqui. -->
           <article class="kpi-card kpi-card--auth">
-            <div class="kpi-card__icon"><img src="/Parcelacion-Segura/frontend/imgs/menu-reportes.png" alt=""></div>
+            <div class="kpi-card__icon"><img src="../imgs/menu-reportes.png" alt=""></div>
             <div>
               <div class="kpi-card__label">Autorizaciones hoy</div>
               <div class="kpi-card__value">2</div>
@@ -215,7 +215,7 @@
                     <tr>
                       <td>
                         <div class="person-cell">
-                          <img class="person-cell__avatar" src="/Parcelacion-Segura/frontend/imgs/usuario.png" alt="">
+                          <img class="person-cell__avatar" src="../imgs/usuario.png" alt="">
                           <div>
                             <div class="person-cell__name">Trabajador 01</div>
                             <div class="person-cell__meta">Empresa A</div>
@@ -234,7 +234,7 @@
                     <tr>
                       <td>
                         <div class="person-cell">
-                          <img class="person-cell__avatar" src="/Parcelacion-Segura/frontend/imgs/usuario.png" alt="">
+                          <img class="person-cell__avatar" src="../imgs/usuario.png" alt="">
                           <div>
                             <div class="person-cell__name">Trabajador 02</div>
                             <div class="person-cell__meta">Empresa B</div>
@@ -274,7 +274,7 @@
                      una persona ingrese o registre su salida. -->
                   <article class="live-card">
                     <div class="live-card__top">
-                      <img class="live-card__avatar" src="/Parcelacion-Segura/frontend/imgs/usuario.png" alt="">
+                      <img class="live-card__avatar" src="../imgs/usuario.png" alt="">
                       <div>
                         <div class="person-cell__name">Trabajador 01</div>
                         <div class="person-cell__meta">Propiedad 05</div>
@@ -285,7 +285,7 @@
                       <!-- Nota: se reutiliza alerta-salida_pendiente.png tal como estaba
                          en el archivo original; si existe un icono de reloj dedicado,
                          encajaria mejor aqui que uno de alerta. -->
-                      <img src="/Parcelacion-Segura/frontend/imgs/alerta-salida_pendiente.png" alt="">
+                      <img src="../imgs/alerta-salida_pendiente.png" alt="">
                       Ingreso: 08:15
                     </div>
                     <span class="badge badge--inside">Dentro</span>
@@ -293,7 +293,7 @@
 
                   <article class="live-card">
                     <div class="live-card__top">
-                      <img class="live-card__avatar" src="/Parcelacion-Segura/frontend/imgs/usuario.png" alt="">
+                      <img class="live-card__avatar" src="../imgs/usuario.png" alt="">
                       <div>
                         <div class="person-cell__name">Trabajador 02</div>
                         <div class="person-cell__meta">Propiedad 12</div>
@@ -301,7 +301,7 @@
                     </div>
                     <p class="live-card__activity">Actividad: Instalacion electrica</p>
                     <div class="live-card__time">
-                      <img src="/Parcelacion-Segura/frontend/imgs/alerta-salida_pendiente.png" alt="">
+                      <img src="../imgs/alerta-salida_pendiente.png" alt="">
                       Ingreso: 09:30
                     </div>
                     <span class="badge badge--inside">Dentro</span>
@@ -318,14 +318,14 @@
                El boton debe iniciar el proceso real de crear una nueva autorizacion. -->
             <div class="panel cta-panel">
               <div class="cta-panel__icon" aria-hidden="true">
-                <img src="/Parcelacion-Segura/frontend/imgs/agregar-usuario.png" alt="">
+                <img src="../imgs/agregar-usuario.png" alt="">
               </div>
               <h2 class="cta-panel__title">Nueva autorizacion</h2>
               <p class="cta-panel__desc">Autoriza el ingreso de un trabajador a la parcelacion.</p>
               <!-- LOGICA: debe abrir el formulario de nueva autorizacion. -->
               <button class="btn btn--primary btn--block" type="button"
                 onclick="window.location.href='autorizaciones.html?nueva=1'">
-                <img src="/Parcelacion-Segura/frontend/imgs/agregar-usuario.png" alt="">
+                <img src="../imgs/agregar-usuario.png" alt="">
                 Autorizar trabajador
               </button>
             </div>
@@ -347,7 +347,7 @@
                      debe actualizarse cuando aparezcan o se resuelvan alertas. -->
                   <li class="alert-item alert-item--critical">
                     <span class="alert-item__icon" aria-hidden="true">
-                      <img src="/Parcelacion-Segura/frontend/imgs/alerta-usuario.png" alt="">
+                      <img src="../imgs/alerta-usuario.png" alt="">
                     </span>
                     <div>
                       <div class="alert-item__title">Intento de ingreso sin autorizacion</div>
@@ -356,7 +356,7 @@
                   </li>
                   <li class="alert-item alert-item--warning">
                     <span class="alert-item__icon" aria-hidden="true">
-                      <img src="/Parcelacion-Segura/frontend/imgs/alerta-salida_pendiente.png" alt="">
+                      <img src="../imgs/alerta-salida_pendiente.png" alt="">
                     </span>
                     <div>
                       <div class="alert-item__title">Salida pendiente</div>
@@ -383,7 +383,7 @@
                   <!-- Nota: el nombre del archivo (grafico-de-torta.png) sugiere un
                      grafico circular; para "accesos por dia" probablemente haga
                      falta un grafico de lineas o de barras en su lugar. -->
-                  <img class="chart-image" src="/Parcelacion-Segura/frontend/imgs/grafico-de-torta.png" alt="">
+                  <img class="chart-image" src="../imgs/grafico-de-torta.png" alt="">
                 </div>
               </div>
             </div>
@@ -398,23 +398,23 @@
                 <ul class="report-list">
                   <li class="report-item">
                     <span class="report-item__icon" aria-hidden="true">
-                      <img src="/Parcelacion-Segura/frontend/imgs/menu-reportes.png" alt="">
+                      <img src="../imgs/menu-reportes.png" alt="">
                     </span>
                     <span class="report-item__name">Ingresos por propiedad</span>
                     <!-- LOGICA: debe generar o descargar el reporte real. -->
                     <a class="report-item__download" href="#" aria-label="Descargar reporte de ingresos por propiedad">
-                      <img src="/Parcelacion-Segura/frontend/imgs/descargas.png" alt="">
+                      <img src="../imgs/descargas.png" alt="">
                     </a>
                   </li>
                   <li class="report-item">
                     <span class="report-item__icon" aria-hidden="true">
-                      <img src="/Parcelacion-Segura/frontend/imgs/menu-reportes.png" alt="">
+                      <img src="../imgs/menu-reportes.png" alt="">
                     </span>
                     <span class="report-item__name">Trabajadores actualmente dentro</span>
                     <!-- LOGICA: debe generar o descargar el reporte real. -->
                     <a class="report-item__download" href="#"
                       aria-label="Descargar reporte de trabajadores actualmente dentro">
-                      <img src="/Parcelacion-Segura/frontend/imgs/descargas.png" alt="">
+                      <img src="../imgs/descargas.png" alt="">
                     </a>
                   </li>
                 </ul>
