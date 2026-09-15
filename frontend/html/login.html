@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcelacion Segura - Iniciar sesion</title>
-    <!-- login-style.css depende de las variables definidas en dashboard-style.css,
-     por eso se cargan en este orden. -->
+
+    <title>Parcelación Segura - Iniciar sesión</title>
+
+    <!-- Estilos generales -->
     <link rel="stylesheet" href="/frontend/css/dashboard-style.css">
+
+    <!-- Estilos específicos del login -->
     <link rel="stylesheet" href="/frontend/css/login-style.css">
 </head>
 
@@ -19,25 +22,49 @@
             <div class="login-card__mark" aria-hidden="true">
                 <img src="/frontend/imgs/menu-secure.png" alt="">
             </div>
-            <h1 class="login-title">Parcelacion Segura</h1>
-            <p class="login-subtitle">Inicie sesion para continuar</p>
+
+            <h1 class="login-title">Parcelación Segura</h1>
+
+            <p class="login-subtitle">
+                Inicie sesión para continuar
+            </p>
         </div>
 
         <form id="loginForm" class="login-form">
 
             <div class="form-group">
                 <label for="usuario">Usuario</label>
-                <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
+
+                <input
+                    type="text"
+                    id="usuario"
+                    name="usuario"
+                    placeholder="Ingrese su usuario"
+                    required
+                >
             </div>
 
             <div class="form-group">
-                <label for="contrasena">Contrasena</label>
-                <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contrasena" required>
+                <label for="contrasena">Contraseña</label>
+
+                <input
+                    type="password"
+                    id="contrasena"
+                    name="contrasena"
+                    placeholder="Ingrese su contraseña"
+                    required
+                >
             </div>
 
-            <button type="submit" class="btn btn--primary btn--block">Iniciar sesion</button>
+            <button
+                type="submit"
+                class="btn btn--primary btn--block"
+            >
+                Iniciar sesión
+            </button>
 
             <div id="mensaje" class="login-message"></div>
+
         </form>
 
     </div>
@@ -47,42 +74,64 @@
         const mensaje = document.getElementById('mensaje');
 
         loginForm.addEventListener('submit', async function (event) {
+
+            // Evitar que la página se recargue
             event.preventDefault();
 
             const usuario = document.getElementById('usuario').value;
             const contrasena = document.getElementById('contrasena').value;
 
             try {
-                // Nota: se uso una ruta relativa ("/login") en vez de
-                // "http://localhost:3000/login" para que funcione sin cambios sin
-                // importar el puerto o dominio, siempre que el backend sirva este
-                // frontend (o este detras del mismo proxy/dominio). Si el backend
-                // corre en otro origen, volver a poner aqui la URL completa.
-                const respuesta = await fetch('/login', {
+
+                const respuesta = await fetch('http://localhost:3001/login', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ usuario, contrasena })
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify({
+                        usuario,
+                        contrasena
+                    })
                 });
 
                 const datos = await respuesta.json();
 
                 if (respuesta.ok) {
-                    mensaje.textContent = 'Inicio de sesion exitoso.';
+
+                    mensaje.textContent = 'Inicio de sesión exitoso.';
                     mensaje.className = 'login-message login-message--ok';
 
-                    localStorage.setItem('usuario', JSON.stringify(datos.usuario));
+                    // Guardar información del usuario
+                    localStorage.setItem(
+                        'usuario',
+                        JSON.stringify(datos.usuario)
+                    );
 
+                    // Ir al dashboard
                     setTimeout(() => {
                         window.location.href = 'dashboard.html';
                     }, 1000);
+
                 } else {
-                    mensaje.textContent = datos.mensaje;
-                    mensaje.className = 'login-message login-message--error';
+
+                    mensaje.textContent =
+                        datos.mensaje || 'Usuario o contraseña incorrectos.';
+
+                    mensaje.className =
+                        'login-message login-message--error';
                 }
+
             } catch (error) {
+
                 console.error(error);
-                mensaje.textContent = 'No se pudo conectar con el servidor.';
-                mensaje.className = 'login-message login-message--error';
+
+                mensaje.textContent =
+                    'No se pudo conectar con el servidor.';
+
+                mensaje.className =
+                    'login-message login-message--error';
             }
         });
     </script>

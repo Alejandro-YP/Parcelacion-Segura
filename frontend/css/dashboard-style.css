@@ -1056,92 +1056,99 @@ svg {
     transition: none !important;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51804217ff587732152ea91ef7d922f35a85a39a
 }
-<<<<<<<<< Temporary merge branch 1
+
 /* ================================
    TABLA DE TRABAJADORES
 ================================ */
 
 .table-container {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
 .table-container th,
 .table-container td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-    white-space: nowrap;
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
 }
 
 .table-container th {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .table-container td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /* BOTONES DE ACCIONES */
 
 .table-container .btnEditar,
 .table-container .btnEliminar {
-    padding: 7px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-right: 5px;
+  padding: 7px 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-right: 5px;
 }
 
 .table-container .btnEditar {
-    background: #e5e7eb;
+  background: var(--color-border);
+  color: var(--color-ink);
 }
 
 .table-container .btnEliminar {
-    background: #fee2e2;
+  background: var(--color-status-alert-bg);
+  color: var(--color-status-alert);
 }
 
 /* FORMULARIO */
 
 .panel__body {
-    padding: 20px;
+  padding: var(--space-5);
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: var(--space-4);
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
 }
 
 .form-group input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-alt);
+  color: var(--color-ink);
 }
 
 .form-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-=========
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
 
+/* ================================
+   MODAL
+================================ */
 
-
-
-/* ============ MODAL ============ */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -1152,23 +1159,31 @@ svg {
   justify-content: center;
   padding: var(--space-4);
 }
+
 .modal-overlay.is-open {
   display: flex;
 }
+
 .modal {
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   width: 100%;
   max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
   box-shadow: var(--shadow-panel);
 }
+
 .modal select:focus,
 .modal input:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px var(--color-accent-soft);
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
 =======
 >>>>>>> af14f9e649bc3516f79c148b37348672e73fd215
+=======
+>>>>>>> 51804217ff587732152ea91ef7d922f35a85a39a
 }
