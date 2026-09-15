@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Ingresos - Parcelación Segura</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="css/dashboard-style.css">
+    <!-- CSS GENERAL -->
+    <link rel="stylesheet"
+          href="../css/dashboard-style.css">
 
     <style>
+
+        /* ==========================================
+           INGRESOS
+           ========================================== */
 
         .page-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
+            margin-bottom: 24px;
         }
-
 
         .page-header__title {
             font-size: var(--text-xl);
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
-
 
         .page-header__description {
             color: var(--color-ink-muted);
             font-size: var(--text-sm);
         }
 
+
+        /* ==========================================
+           FORMULARIOS
+           ========================================== */
 
         .filters {
             display: grid;
@@ -46,13 +50,11 @@
             align-items: end;
         }
 
-
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: var(--space-1);
+            gap: 6px;
         }
-
 
         .form-group label {
             font-size: var(--text-xs);
@@ -60,11 +62,10 @@
             color: var(--color-ink-muted);
         }
 
-
         .form-control {
             width: 100%;
             height: 40px;
-            padding: 0 var(--space-3);
+            padding: 0 12px;
 
             border: 1px solid var(--color-border);
             border-radius: var(--radius-sm);
@@ -76,12 +77,15 @@
             font-size: var(--text-sm);
         }
 
-
         .form-control:focus {
             outline: none;
             border-color: var(--color-accent);
         }
 
+
+        /* ==========================================
+           BOTONES
+           ========================================== */
 
         .btn--secondary {
             background: var(--color-surface);
@@ -89,15 +93,19 @@
             border: 1px solid var(--color-border);
         }
 
-
         .btn--secondary:hover {
             background: var(--color-surface-alt);
         }
 
 
+        /* ==========================================
+           MENSAJES
+           ========================================== */
+
         .status-message {
-            margin-top: var(--space-3);
-            padding: var(--space-3);
+            margin-top: 15px;
+            padding: 12px;
+
             border-radius: var(--radius-sm);
 
             font-size: var(--text-sm);
@@ -105,13 +113,22 @@
             display: none;
         }
 
-
         .status-message.success {
             display: block;
             background: var(--color-status-inside-bg);
             color: var(--color-status-inside);
         }
 
+        .status-message.error {
+            display: block;
+            background: #fdecec;
+            color: #a33a3a;
+        }
+
+
+        /* ==========================================
+           ESTADO VACÍO
+           ========================================== */
 
         .empty-message {
             text-align: center;
@@ -120,6 +137,22 @@
         }
 
 
+        /* ==========================================
+           BOTÓN SALIDA
+           ========================================== */
+
+        .btn-salida {
+            margin-top: 7px;
+            height: 32px;
+            padding: 0 10px;
+            font-size: 12px;
+        }
+
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+
         @media (max-width: 900px) {
 
             .filters {
@@ -127,7 +160,6 @@
             }
 
         }
-
 
         @media (max-width: 620px) {
 
@@ -144,7 +176,10 @@
     </style>
 
 </head>
+
+
 <body>
+
 <div class="app-shell" id="appShell">
 
 
@@ -159,7 +194,7 @@
 
         <div class="sidebar__brand">
 
-            <div class="sidebar__brand-mark" aria-hidden="true">
+            <div class="sidebar__brand-mark">
 
                 <svg
                     width="20"
@@ -174,7 +209,9 @@
 
                     <path d="M4 11.5 12 4l8 7.5"/>
 
-                    <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"/>
+                    <path
+                        d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"
+                    />
 
                     <circle cx="12" cy="14" r="1.6"/>
 
@@ -184,18 +221,24 @@
 
 
             <span class="sidebar__brand-name">
-                Parcelacion<br>Segura
+                Parcelacion<br>
+                Segura
             </span>
 
         </div>
 
 
-        <!-- NAVEGACIÓN -->
+        <!-- ==========================================
+             NAVEGACIÓN
+             ========================================== -->
 
-        <nav class="sidebar__nav" aria-label="Navegacion principal">
+        <nav class="sidebar__nav">
 
 
-            <a class="nav__item" href="dashboard.html">
+            <!-- DASHBOARD -->
+
+            <a class="nav__item"
+               href="dashboard.html">
 
                 <svg
                     class="nav__icon"
@@ -205,10 +248,37 @@
                     stroke-width="1.8"
                 >
 
-                    <rect x="3" y="3" width="7" height="7" rx="1.5"/>
-                    <rect x="14" y="3" width="7" height="7" rx="1.5"/>
-                    <rect x="3" y="14" width="7" height="7" rx="1.5"/>
-                    <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                    <rect
+                        x="3"
+                        y="3"
+                        width="7"
+                        height="7"
+                        rx="1.5"
+                    />
+
+                    <rect
+                        x="14"
+                        y="3"
+                        width="7"
+                        height="7"
+                        rx="1.5"
+                    />
+
+                    <rect
+                        x="3"
+                        y="14"
+                        width="7"
+                        height="7"
+                        rx="1.5"
+                    />
+
+                    <rect
+                        x="14"
+                        y="14"
+                        width="7"
+                        height="7"
+                        rx="1.5"
+                    />
 
                 </svg>
 
@@ -219,7 +289,10 @@
             </a>
 
 
-            <a class="nav__item" href="trabajadores.html">
+            <!-- TRABAJADORES -->
+
+            <a class="nav__item"
+               href="trabajadores.html">
 
                 <svg
                     class="nav__icon"
@@ -229,10 +302,21 @@
                     stroke-width="1.8"
                 >
 
-                    <circle cx="9" cy="8" r="3.2"/>
-                    <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
-                    <circle cx="17.5" cy="9" r="2.4"/>
-                    <path d="M15.5 20c.2-2.6 1.8-4.6 3.9-5.3"/>
+                    <circle
+                        cx="9"
+                        cy="8"
+                        r="3.2"
+                    />
+
+                    <path
+                        d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"
+                    />
+
+                    <circle
+                        cx="17.5"
+                        cy="9"
+                        r="2.4"
+                    />
 
                 </svg>
 
@@ -243,7 +327,10 @@
             </a>
 
 
-            <a class="nav__item" href="autorizaciones.html">
+            <!-- AUTORIZACIONES -->
+
+            <a class="nav__item"
+               href="autorizaciones.html">
 
                 <svg
                     class="nav__icon"
@@ -253,8 +340,17 @@
                     stroke-width="1.8"
                 >
 
-                    <rect x="4" y="3" width="16" height="18" rx="2"/>
-                    <path d="m8.5 12 2.3 2.3L16 9.5"/>
+                    <rect
+                        x="4"
+                        y="3"
+                        width="16"
+                        height="18"
+                        rx="2"
+                    />
+
+                    <path
+                        d="m8.5 12 2.3 2.3L16 9.5"
+                    />
 
                 </svg>
 
@@ -265,12 +361,10 @@
             </a>
 
 
-            <!-- INGRESOS ACTIVO -->
+            <!-- INGRESOS -->
 
-            <a
-                class="nav__item is-active"
-                href="ingresos.html"
-            >
+            <a class="nav__item is-active"
+               href="ingresos.html">
 
                 <svg
                     class="nav__icon"
@@ -280,7 +374,9 @@
                     stroke-width="1.8"
                 >
 
-                    <path d="M13 3h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-5"/>
+                    <path
+                        d="M13 3h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-5"
+                    />
 
                     <path d="M9 8l5 4-5 4"/>
 
@@ -295,7 +391,10 @@
             </a>
 
 
-            <a class="nav__item" href="propiedades.html">
+            <!-- PROPIEDADES -->
+
+            <a class="nav__item"
+               href="propiedades.html">
 
                 <svg
                     class="nav__icon"
@@ -307,9 +406,13 @@
 
                     <path d="M4 10.5 12 4l8 6.5"/>
 
-                    <path d="M5.5 9.5V20h13V9.5"/>
+                    <path
+                        d="M5.5 9.5V20h13V9.5"
+                    />
 
-                    <path d="M10 20v-5h4v5"/>
+                    <path
+                        d="M10 20v-5h4v5"
+                    />
 
                 </svg>
 
@@ -320,7 +423,10 @@
             </a>
 
 
-            <a class="nav__item" href="empresas.html">
+            <!-- EMPRESAS -->
+
+            <a class="nav__item"
+               href="empresas.html">
 
                 <svg
                     class="nav__icon"
@@ -330,9 +436,17 @@
                     stroke-width="1.8"
                 >
 
-                    <rect x="4" y="8" width="16" height="13" rx="1.5"/>
+                    <rect
+                        x="4"
+                        y="8"
+                        width="16"
+                        height="13"
+                        rx="1.5"
+                    />
 
-                    <path d="M9 8V5.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5.5V8"/>
+                    <path
+                        d="M9 8V5.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5.5V8"
+                    />
 
                     <path d="M4 13h16"/>
 
@@ -345,7 +459,10 @@
             </a>
 
 
-            <a class="nav__item" href="reportes.html">
+            <!-- REPORTES -->
+
+            <a class="nav__item"
+               href="reportes.html">
 
                 <svg
                     class="nav__icon"
@@ -368,7 +485,10 @@
             </a>
 
 
-            <a class="nav__item" href="alertas.html">
+            <!-- ALERTAS -->
+
+            <a class="nav__item"
+               href="alertas.html">
 
                 <svg
                     class="nav__icon"
@@ -378,9 +498,13 @@
                     stroke-width="1.8"
                 >
 
-                    <path d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z"/>
+                    <path
+                        d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z"
+                    />
 
-                    <path d="M10 18a2 2 0 0 0 4 0"/>
+                    <path
+                        d="M10 18a2 2 0 0 0 4 0"
+                    />
 
                 </svg>
 
@@ -395,7 +519,10 @@
             </a>
 
 
-            <a class="nav__item" href="usuarios.html">
+            <!-- USUARIOS -->
+
+            <a class="nav__item"
+               href="usuarios.html">
 
                 <svg
                     class="nav__icon"
@@ -405,9 +532,15 @@
                     stroke-width="1.8"
                 >
 
-                    <circle cx="12" cy="8" r="3.4"/>
+                    <circle
+                        cx="12"
+                        cy="8"
+                        r="3.4"
+                    />
 
-                    <path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/>
+                    <path
+                        d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"
+                    />
 
                 </svg>
 
@@ -418,7 +551,10 @@
             </a>
 
 
-            <a class="nav__item" href="configuracion.html">
+            <!-- CONFIGURACIÓN -->
+
+            <a class="nav__item"
+               href="configuracion.html">
 
                 <svg
                     class="nav__icon"
@@ -428,23 +564,28 @@
                     stroke-width="1.8"
                 >
 
-                    <circle cx="12" cy="12" r="3"/>
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="3"
+                    />
 
-                    <path d="M19.4 13.5a7.4 7.4 0 0 0 0-3l1.8-1.4-1.9-3.3-2.1.7a7.3 7.3 0 0 0-2.6-1.5L14.2 3h-4.4l-.4 2a7.3 7.3 0 0 0-2.6 1.5l-2.1-.7-1.9 3.3L4.6 10.5a7.4 7.4 0 0 0 0 3l-1.8 1.4 1.9 3.3 2.1-.7c.75.66 1.63 1.17 2.6 1.5l.4 2h4.4l.4-2a7.3 7.3 0 0 0 2.6-1.5l2.1.7 1.9-3.3-1.8-1.4Z"/>
+                    <path
+                        d="M19.4 13.5a7.4 7.4 0 0 0 0-3l1.8-1.4-1.9-3.3-2.1.7a7.3 7.3 0 0 0-2.6-1.5L14.2 3h-4.4l-.4 2a7.3 7.3 0 0 0-2.6 1.5l-2.1-.7-1.9 3.3L4.6 10.5a7.4 7.4 0 0 0 0 3l-1.8 1.4 1.9 3.3 2.1-.7c.75.66 1.63 1.17 2.6 1.5l.4 2h4.4l.4-2a7.3 7.3 0 0 0 2.6-1.5l2.1.7 1.9-3.3-1.8-1.4Z"
+                    />
 
                 </svg>
 
                 <span class="nav__label">
-                    Configuracion
+                    Configuración
                 </span>
 
             </a>
 
-
         </nav>
 
 
-        <!-- BOTÓN CONTRAER -->
+        <!-- CONTRAER -->
 
         <div class="sidebar__footer">
 
@@ -467,7 +608,7 @@
                 </svg>
 
                 <span>
-                    Contraer menu
+                    Contraer menú
                 </span>
 
             </button>
@@ -484,7 +625,7 @@
     <div class="app-main">
 
 
-        <!-- BARRA SUPERIOR -->
+        <!-- TOPBAR -->
 
         <header class="topbar">
 
@@ -539,9 +680,13 @@
                         stroke-width="1.8"
                     >
 
-                        <path d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z"/>
+                        <path
+                            d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z"
+                        />
 
-                        <path d="M10 18a2 2 0 0 0 4 0"/>
+                        <path
+                            d="M10 18a2 2 0 0 0 4 0"
+                        />
 
                     </svg>
 
@@ -627,7 +772,7 @@
 
 
             <!-- ==========================================
-                 FORMULARIO DE INGRESO
+                 FORMULARIO
                  ========================================== -->
 
             <section
@@ -648,7 +793,6 @@
                 <div class="panel__body">
 
                     <form id="ingresoForm">
-
 
                         <div class="filters">
 
@@ -748,11 +892,8 @@
                                 class="btn btn--primary"
                                 type="submit"
                             >
-
                                 Registrar
-
                             </button>
-
 
                         </div>
 
@@ -761,7 +902,6 @@
                             class="status-message"
                             id="statusMessage"
                         ></div>
-
 
                     </form>
 
@@ -775,7 +915,6 @@
                  ========================================== -->
 
             <section class="panel">
-
 
                 <div class="panel__header">
 
@@ -856,11 +995,8 @@
                             type="button"
                             id="limpiarFiltros"
                         >
-
                             Limpiar
-
                         </button>
-
 
                     </div>
 
@@ -870,11 +1006,10 @@
 
 
             <!-- ==========================================
-                 TABLA DE INGRESOS
+                 TABLA
                  ========================================== -->
 
             <section class="panel">
-
 
                 <div class="panel__header">
 
@@ -887,7 +1022,7 @@
                     </div>
 
                     <span class="select-chip">
-                        Datos de prueba
+                        Registros actuales
                     </span>
 
                 </div>
@@ -898,7 +1033,6 @@
                     <div style="overflow-x: auto;">
 
                         <table class="data-table">
-
 
                             <thead>
 
@@ -935,207 +1069,16 @@
 
                             <tbody id="entriesBody">
 
-
                                 <tr>
 
-                                    <td>
-
-                                        <div class="person-cell">
-
-                                            <span
-                                                class="person-cell__avatar"
-                                                aria-hidden="true"
-                                            ></span>
-
-                                            <div>
-
-                                                <div class="person-cell__name">
-                                                    Trabajador 01
-                                                </div>
-
-                                                <div class="person-cell__meta">
-                                                    Empresa A
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-
-                                        <div class="cell-title">
-                                            Propiedad 05
-                                        </div>
-
-                                        <div class="cell-meta">
-                                            Casa Quinta
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-                                        Mantenimiento de jardines
-                                    </td>
-
-
-                                    <td>
-                                        08:15
-                                    </td>
-
-
-                                    <td>
-                                        –
-                                    </td>
-
-
-                                    <td>
-
-                                        <span class="badge badge--inside">
-                                            Dentro
-                                        </span>
-
+                                    <td
+                                        colspan="6"
+                                        class="empty-message"
+                                    >
+                                        Cargando ingresos...
                                     </td>
 
                                 </tr>
-
-
-                                <tr>
-
-                                    <td>
-
-                                        <div class="person-cell">
-
-                                            <span
-                                                class="person-cell__avatar"
-                                                aria-hidden="true"
-                                            ></span>
-
-                                            <div>
-
-                                                <div class="person-cell__name">
-                                                    Trabajador 02
-                                                </div>
-
-                                                <div class="person-cell__meta">
-                                                    Empresa B
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-
-                                        <div class="cell-title">
-                                            Propiedad 12
-                                        </div>
-
-                                        <div class="cell-meta">
-                                            Casa Principal
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-                                        Instalacion electrica
-                                    </td>
-
-
-                                    <td>
-                                        09:30
-                                    </td>
-
-
-                                    <td>
-                                        –
-                                    </td>
-
-
-                                    <td>
-
-                                        <span class="badge badge--inside">
-                                            Dentro
-                                        </span>
-
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-
-                                        <div class="person-cell">
-
-                                            <span
-                                                class="person-cell__avatar"
-                                                aria-hidden="true"
-                                            ></span>
-
-                                            <div>
-
-                                                <div class="person-cell__name">
-                                                    Trabajador 03
-                                                </div>
-
-                                                <div class="person-cell__meta">
-                                                    Empresa C
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-
-                                        <div class="cell-title">
-                                            Propiedad 18
-                                        </div>
-
-                                        <div class="cell-meta">
-                                            Casa Campestre
-                                        </div>
-
-                                    </td>
-
-
-                                    <td>
-                                        Mantenimiento general
-                                    </td>
-
-
-                                    <td>
-                                        07:45
-                                    </td>
-
-
-                                    <td>
-                                        12:20
-                                    </td>
-
-
-                                    <td>
-
-                                        <span class="badge badge--out">
-                                            Salida registrada
-                                        </span>
-
-                                    </td>
-
-                                </tr>
-
 
                             </tbody>
 
@@ -1161,22 +1104,54 @@
 
 <script>
 
+    const API_URL = "http://localhost:3001";
+
 
     // ==========================================
-    // SIDEBAR
+    // ELEMENTOS
     // ==========================================
 
     const appShell =
         document.getElementById("appShell");
 
-
     const collapseBtn =
         document.getElementById("collapseBtn");
-
 
     const menuBtn =
         document.getElementById("menuBtn");
 
+    const nuevoIngresoBtn =
+        document.getElementById("nuevoIngresoBtn");
+
+    const formularioPanel =
+        document.getElementById("formularioPanel");
+
+    const ingresoForm =
+        document.getElementById("ingresoForm");
+
+    const entriesBody =
+        document.getElementById("entriesBody");
+
+    const statusMessage =
+        document.getElementById("statusMessage");
+
+
+    const buscarTrabajador =
+        document.getElementById("buscarTrabajador");
+
+    const buscarPropiedad =
+        document.getElementById("buscarPropiedad");
+
+    const buscarEstado =
+        document.getElementById("buscarEstado");
+
+    const limpiarFiltros =
+        document.getElementById("limpiarFiltros");
+
+
+    // ==========================================
+    // SIDEBAR
+    // ==========================================
 
     function toggleSidebar() {
 
@@ -1198,26 +1173,19 @@
 
 
     // ==========================================
-    // FORMULARIO DE NUEVO INGRESO
+    // MOSTRAR FORMULARIO
     // ==========================================
-
-    const nuevoIngresoBtn =
-        document.getElementById("nuevoIngresoBtn");
-
-
-    const formularioPanel =
-        document.getElementById("formularioPanel");
-
 
     nuevoIngresoBtn.addEventListener(
         "click",
-        function() {
+        function () {
 
             if (
                 formularioPanel.style.display === "none"
             ) {
 
-                formularioPanel.style.display = "block";
+                formularioPanel.style.display =
+                    "block";
 
                 nuevoIngresoBtn.textContent =
                     "Cancelar";
@@ -1226,10 +1194,10 @@
 
             else {
 
-                formularioPanel.style.display = "none";
+                formularioPanel.style.display =
+                    "none";
 
-                nuevoIngresoBtn.innerHTML =
-                    `
+                nuevoIngresoBtn.innerHTML = `
                     <svg
                         width="16"
                         height="16"
@@ -1243,7 +1211,7 @@
                     </svg>
 
                     Registrar ingreso
-                    `;
+                `;
 
             }
 
@@ -1252,212 +1220,459 @@
 
 
     // ==========================================
+    // CARGAR INGRESOS
+    // ==========================================
+
+    async function cargarIngresos() {
+
+        try {
+
+            const respuesta =
+                await fetch(`${API_URL}/ingresos`);
+
+
+            if (!respuesta.ok) {
+
+                throw new Error(
+                    "No se pudieron cargar los ingresos."
+                );
+
+            }
+
+
+            const ingresos =
+                await respuesta.json();
+
+
+            mostrarIngresos(ingresos);
+
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+
+            entriesBody.innerHTML = `
+
+                <tr>
+
+                    <td
+                        colspan="6"
+                        class="empty-message"
+                    >
+                        No se pudo conectar con el servidor.
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+
+    }
+
+
+    // ==========================================
+    // MOSTRAR INGRESOS
+    // ==========================================
+
+    function mostrarIngresos(ingresos) {
+
+        entriesBody.innerHTML = "";
+
+
+        if (ingresos.length === 0) {
+
+            entriesBody.innerHTML = `
+
+                <tr>
+
+                    <td
+                        colspan="6"
+                        class="empty-message"
+                    >
+                        No hay ingresos registrados.
+                    </td>
+
+                </tr>
+
+            `;
+
+            return;
+
+        }
+
+
+        ingresos.forEach(
+            function (ingreso) {
+
+                const fila =
+                    document.createElement("tr");
+
+
+                const claseEstado =
+                    ingreso.estado === "Dentro"
+                        ? "badge--inside"
+                        : "badge--out";
+
+
+                let botonSalida = "";
+
+
+                if (
+                    ingreso.estado === "Dentro"
+                ) {
+
+                    botonSalida = `
+
+                        <button
+                            type="button"
+                            class="btn btn--secondary btn-salida"
+                            data-id="${ingreso.id}"
+                        >
+                            Registrar salida
+                        </button>
+
+                    `;
+
+                }
+
+
+                fila.innerHTML = `
+
+                    <td>
+
+                        <div class="person-cell">
+
+                            <span
+                                class="person-cell__avatar"
+                                aria-hidden="true"
+                            ></span>
+
+                            <div>
+
+                                <div class="person-cell__name">
+                                    ${ingreso.trabajador}
+                                </div>
+
+                                <div class="person-cell__meta">
+                                    ${ingreso.empresa || "Registro manual"}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+
+                        <div class="cell-title">
+                            ${ingreso.propiedad}
+                        </div>
+
+                    </td>
+
+
+                    <td>
+                        ${ingreso.actividad}
+                    </td>
+
+
+                    <td>
+                        ${ingreso.horaIngreso}
+                    </td>
+
+
+                    <td>
+                        ${ingreso.horaSalida || "–"}
+                    </td>
+
+
+                    <td>
+
+                        <span
+                            class="badge ${claseEstado}"
+                        >
+                            ${ingreso.estado}
+                        </span>
+
+                        ${botonSalida}
+
+                    </td>
+
+                `;
+
+
+                entriesBody.appendChild(fila);
+
+            }
+        );
+
+
+        agregarEventosSalida();
+
+    }
+
+
+    // ==========================================
     // REGISTRAR INGRESO
     // ==========================================
 
-    const ingresoForm =
-        document.getElementById("ingresoForm");
-
-
-    const entriesBody =
-        document.getElementById("entriesBody");
-
-
-    const statusMessage =
-        document.getElementById("statusMessage");
-
-
     ingresoForm.addEventListener(
         "submit",
-        function(event) {
+        async function (event) {
 
             event.preventDefault();
 
 
             const trabajador =
-                document.getElementById("trabajador").value;
+                document.getElementById(
+                    "trabajador"
+                ).value;
 
 
             const propiedad =
-                document.getElementById("propiedad").value;
+                document.getElementById(
+                    "propiedad"
+                ).value;
 
 
             const actividad =
-                document.getElementById("actividad").value;
+                document.getElementById(
+                    "actividad"
+                ).value;
 
 
-            // Obtener hora actual
+            try {
 
-            const ahora =
-                new Date();
+                const respuesta =
+                    await fetch(
+                        `${API_URL}/ingresos`,
+                        {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                trabajador:
+                                    trabajador,
+
+                                propiedad:
+                                    propiedad,
+
+                                actividad:
+                                    actividad
+
+                            })
+
+                        }
+                    );
 
 
-            const hora =
-                ahora.toLocaleTimeString(
-                    "es-CO",
-                    {
-                        hour: "2-digit",
-                        minute: "2-digit"
-                    }
+                const datos =
+                    await respuesta.json();
+
+
+                if (!respuesta.ok) {
+
+                    throw new Error(
+                        datos.mensaje ||
+                        "No se pudo registrar el ingreso."
+                    );
+
+                }
+
+
+                mostrarMensaje(
+                    "Ingreso registrado correctamente.",
+                    "success"
                 );
 
 
-            // Crear nueva fila
-
-            const fila =
-                document.createElement("tr");
+                ingresoForm.reset();
 
 
-            fila.innerHTML = `
+                await cargarIngresos();
 
-                <td>
-
-                    <div class="person-cell">
-
-                        <span
-                            class="person-cell__avatar"
-                            aria-hidden="true"
-                        ></span>
-
-                        <div>
-
-                            <div class="person-cell__name">
-                                ${trabajador}
-                            </div>
-
-                            <div class="person-cell__meta">
-                                Registro manual
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </td>
+            }
 
 
-                <td>
+            catch (error) {
 
-                    <div class="cell-title">
-                        ${propiedad}
-                    </div>
-
-                </td>
+                console.error(error);
 
 
-                <td>
-                    ${actividad}
-                </td>
+                mostrarMensaje(
+                    error.message,
+                    "error"
+                );
 
-
-                <td>
-                    ${hora}
-                </td>
-
-
-                <td>
-                    –
-                </td>
-
-
-                <td>
-
-                    <span class="badge badge--inside">
-                        Dentro
-                    </span>
-
-                </td>
-
-            `;
-
-
-            // Agregar al principio
-
-            entriesBody.prepend(fila);
-
-
-            // Mostrar mensaje
-
-            statusMessage.textContent =
-                "Ingreso registrado correctamente.";
-
-
-            statusMessage.className =
-                "status-message success";
-
-
-            // Limpiar formulario
-
-            ingresoForm.reset();
-
-
-            // Ocultar mensaje después de unos segundos
-
-            setTimeout(
-                function() {
-
-                    statusMessage.style.display =
-                        "none";
-
-                },
-                3000
-            );
+            }
 
         }
     );
 
 
     // ==========================================
-    // FILTROS
+    // MENSAJE
     // ==========================================
 
-    const buscarTrabajador =
-        document.getElementById("buscarTrabajador");
+    function mostrarMensaje(
+        mensaje,
+        tipo
+    ) {
+
+        statusMessage.textContent =
+            mensaje;
 
 
-    const buscarPropiedad =
-        document.getElementById("buscarPropiedad");
+        statusMessage.className =
+            `status-message ${tipo}`;
 
 
-    const buscarEstado =
-        document.getElementById("buscarEstado");
+        setTimeout(
+            function () {
 
+                statusMessage.style.display =
+                    "none";
+
+            },
+            3000
+        );
+
+    }
+
+
+    // ==========================================
+    // REGISTRAR SALIDA
+    // ==========================================
+
+    function agregarEventosSalida() {
+
+        const botones =
+            document.querySelectorAll(
+                ".btn-salida"
+            );
+
+
+        botones.forEach(
+            function (boton) {
+
+                boton.addEventListener(
+                    "click",
+                    async function () {
+
+                        const id =
+                            boton.dataset.id;
+
+
+                        try {
+
+                            const respuesta =
+                                await fetch(
+                                    `${API_URL}/ingresos/${id}/salida`,
+                                    {
+                                        method: "PATCH"
+                                    }
+                                );
+
+
+                            const datos =
+                                await respuesta.json();
+
+
+                            if (!respuesta.ok) {
+
+                                throw new Error(
+                                    datos.mensaje ||
+                                    "No se pudo registrar la salida."
+                                );
+
+                            }
+
+
+                            await cargarIngresos();
+
+                        }
+
+
+                        catch (error) {
+
+                            console.error(error);
+
+                            alert(error.message);
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    // ==========================================
+    // FILTROS
+    // ==========================================
 
     function filtrarIngresos() {
 
         const trabajador =
-            buscarTrabajador.value.toLowerCase();
+            buscarTrabajador.value
+                .toLowerCase();
 
 
         const propiedad =
-            buscarPropiedad.value.toLowerCase();
+            buscarPropiedad.value
+                .toLowerCase();
 
 
         const estado =
-            buscarEstado.value.toLowerCase();
+            buscarEstado.value
+                .toLowerCase();
 
 
         const filas =
-            entriesBody.querySelectorAll("tr");
+            entriesBody.querySelectorAll(
+                "tr"
+            );
 
 
         filas.forEach(
-            function(fila) {
+            function (fila) {
 
                 const texto =
-                    fila.textContent.toLowerCase();
+                    fila.textContent
+                        .toLowerCase();
 
 
                 const coincideTrabajador =
-                    texto.includes(trabajador);
+                    texto.includes(
+                        trabajador
+                    );
 
 
                 const coincidePropiedad =
-                    texto.includes(propiedad);
+                    texto.includes(
+                        propiedad
+                    );
 
 
                 const coincideEstado =
-                    texto.includes(estado);
+                    texto.includes(
+                        estado
+                    );
 
 
                 if (
@@ -1472,7 +1687,8 @@
 
                 else {
 
-                    fila.style.display = "none";
+                    fila.style.display =
+                        "none";
 
                 }
 
@@ -1504,23 +1720,27 @@
     // LIMPIAR FILTROS
     // ==========================================
 
-    document
-        .getElementById("limpiarFiltros")
-        .addEventListener(
-            "click",
-            function() {
+    limpiarFiltros.addEventListener(
+        "click",
+        function () {
 
-                buscarTrabajador.value = "";
+            buscarTrabajador.value = "";
 
-                buscarPropiedad.value = "";
+            buscarPropiedad.value = "";
 
-                buscarEstado.value = "";
+            buscarEstado.value = "";
 
-                filtrarIngresos();
+            filtrarIngresos();
 
-            }
-        );
+        }
+    );
 
+
+    // ==========================================
+    // INICIAR
+    // ==========================================
+
+    cargarIngresos();
 
 </script>
 
