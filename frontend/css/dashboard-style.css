@@ -1055,6 +1055,10 @@ svg {
   * {
     transition: none !important;
   }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 51804217ff587732152ea91ef7d922f35a85a39a
 }
 
 /* ================================
@@ -1176,4 +1180,10 @@ svg {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px var(--color-accent-soft);
+<<<<<<< HEAD
+>>>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> af14f9e649bc3516f79c148b37348672e73fd215
+=======
+>>>>>>> 51804217ff587732152ea91ef7d922f35a85a39a
 }
