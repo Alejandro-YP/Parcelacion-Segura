@@ -2,32 +2,39 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Ingresos - Parcelación Segura</title>
     <link rel="stylesheet" href="/frontend/css/dashboard-style.css">
 
     <style>
+
         .page-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
+            margin-bottom: 24px;
         }
-
 
         .page-header__title {
             font-size: var(--text-xl);
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
-
 
         .page-header__description {
             color: var(--color-ink-muted);
             font-size: var(--text-sm);
         }
 
+
+        /* ==========================================
+           FORMULARIOS
+           ========================================== */
 
         .filters {
             display: grid;
@@ -36,13 +43,11 @@
             align-items: end;
         }
 
-
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: var(--space-1);
+            gap: 6px;
         }
-
 
         .form-group label {
             font-size: var(--text-xs);
@@ -50,11 +55,10 @@
             color: var(--color-ink-muted);
         }
 
-
         .form-control {
             width: 100%;
             height: 40px;
-            padding: 0 var(--space-3);
+            padding: 0 12px;
 
             border: 1px solid var(--color-border);
             border-radius: var(--radius-sm);
@@ -66,12 +70,15 @@
             font-size: var(--text-sm);
         }
 
-
         .form-control:focus {
             outline: none;
             border-color: var(--color-accent);
         }
 
+
+        /* ==========================================
+           BOTONES
+           ========================================== */
 
         .btn--secondary {
             background: var(--color-surface);
@@ -79,15 +86,19 @@
             border: 1px solid var(--color-border);
         }
 
-
         .btn--secondary:hover {
             background: var(--color-surface-alt);
         }
 
 
+        /* ==========================================
+           MENSAJES
+           ========================================== */
+
         .status-message {
-            margin-top: var(--space-3);
-            padding: var(--space-3);
+            margin-top: 15px;
+            padding: 12px;
+
             border-radius: var(--radius-sm);
 
             font-size: var(--text-sm);
@@ -95,13 +106,22 @@
             display: none;
         }
 
-
         .status-message.success {
             display: block;
             background: var(--color-status-inside-bg);
             color: var(--color-status-inside);
         }
 
+        .status-message.error {
+            display: block;
+            background: #fdecec;
+            color: #a33a3a;
+        }
+
+
+        /* ==========================================
+           ESTADO VACÍO
+           ========================================== */
 
         .empty-message {
             text-align: center;
@@ -110,6 +130,22 @@
         }
 
 
+        /* ==========================================
+           BOTÓN SALIDA
+           ========================================== */
+
+        .btn-salida {
+            margin-top: 7px;
+            height: 32px;
+            padding: 0 10px;
+            font-size: 12px;
+        }
+
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+
         @media (max-width: 900px) {
 
             .filters {
@@ -117,7 +153,6 @@
             }
 
         }
-
 
         @media (max-width: 620px) {
 
@@ -133,9 +168,8 @@
     </style>
 
 </head>
-
 <body>
-    <div class="app-shell" id="appShell">
+<div class="app-shell" id="appShell">
 
 
         <!-- ==========================================
@@ -149,14 +183,14 @@
 
             <div class="sidebar__brand">
 
-                <div class="sidebar__brand-mark" aria-hidden="true">
+            <div class="sidebar__brand-mark" aria-hidden="true">
 
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14201A" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
 
                         <path d="M4 11.5 12 4l8 7.5" />
 
-                        <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9" />
+                    <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"/>
 
                         <circle cx="12" cy="14" r="1.6" />
 
@@ -165,26 +199,32 @@
                 </div>
 
 
-                <span class="sidebar__brand-name">
-                    Parcelacion<br>Segura
-                </span>
+            <span class="sidebar__brand-name">
+                Parcelacion<br>Segura
+            </span>
 
             </div>
 
 
-            <!-- NAVEGACIÓN -->
+        <!-- NAVEGACIÓN -->
 
-            <nav class="sidebar__nav" aria-label="Navegacion principal">
+        <nav class="sidebar__nav" aria-label="Navegacion principal">
 
 
-                <a class="nav__item" href="dashboard.html">
+            <a class="nav__item" href="dashboard.html">
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <rect x="3" y="3" width="7" height="7" rx="1.5" />
-                        <rect x="14" y="3" width="7" height="7" rx="1.5" />
-                        <rect x="3" y="14" width="7" height="7" rx="1.5" />
-                        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                    <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1.5"/>
 
                     </svg>
 
@@ -195,14 +235,20 @@
                 </a>
 
 
-                <a class="nav__item" href="trabajadores.html">
+            <a class="nav__item" href="trabajadores.html">
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <circle cx="9" cy="8" r="3.2" />
-                        <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
-                        <circle cx="17.5" cy="9" r="2.4" />
-                        <path d="M15.5 20c.2-2.6 1.8-4.6 3.9-5.3" />
+                    <circle cx="9" cy="8" r="3.2"/>
+                    <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+                    <circle cx="17.5" cy="9" r="2.4"/>
+                    <path d="M15.5 20c.2-2.6 1.8-4.6 3.9-5.3"/>
 
                     </svg>
 
@@ -213,12 +259,18 @@
                 </a>
 
 
-                <a class="nav__item" href="autorizaciones.html">
+            <a class="nav__item" href="autorizaciones.html">
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <rect x="4" y="3" width="16" height="18" rx="2" />
-                        <path d="m8.5 12 2.3 2.3L16 9.5" />
+                    <rect x="4" y="3" width="16" height="18" rx="2"/>
+                    <path d="m8.5 12 2.3 2.3L16 9.5"/>
 
                     </svg>
 
@@ -229,13 +281,22 @@
                 </a>
 
 
-                <!-- INGRESOS ACTIVO -->
+            <!-- INGRESOS ACTIVO -->
 
-                <a class="nav__item is-active" href="ingresos.html">
+            <a
+                class="nav__item is-active"
+                href="ingresos.html"
+            >
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <path d="M13 3h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-5" />
+                    <path d="M13 3h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-5"/>
 
                         <path d="M9 8l5 4-5 4" />
 
@@ -250,15 +311,15 @@
                 </a>
 
 
-                <a class="nav__item" href="propiedades.html">
+            <a class="nav__item" href="propiedades.html">
 
                     <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 
                         <path d="M4 10.5 12 4l8 6.5" />
 
-                        <path d="M5.5 9.5V20h13V9.5" />
+                    <path d="M5.5 9.5V20h13V9.5"/>
 
-                        <path d="M10 20v-5h4v5" />
+                    <path d="M10 20v-5h4v5"/>
 
                     </svg>
 
@@ -269,13 +330,19 @@
                 </a>
 
 
-                <a class="nav__item" href="empresas.html">
+            <a class="nav__item" href="empresas.html">
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <rect x="4" y="8" width="16" height="13" rx="1.5" />
+                    <rect x="4" y="8" width="16" height="13" rx="1.5"/>
 
-                        <path d="M9 8V5.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5.5V8" />
+                    <path d="M9 8V5.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5.5V8"/>
 
                         <path d="M4 13h16" />
 
@@ -288,7 +355,7 @@
                 </a>
 
 
-                <a class="nav__item" href="reportes.html">
+            <a class="nav__item" href="reportes.html">
 
                     <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
 
@@ -305,14 +372,19 @@
                 </a>
 
 
-                <a class="nav__item" href="alertas.html">
+            <a class="nav__item" href="alertas.html">
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <path
-                            d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z" />
+                    <path d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z"/>
 
-                        <path d="M10 18a2 2 0 0 0 4 0" />
+                    <path d="M10 18a2 2 0 0 0 4 0"/>
 
                     </svg>
 
@@ -327,13 +399,19 @@
                 </a>
 
 
-                <a class="nav__item" href="usuarios.html">
+            <a class="nav__item" href="usuarios.html">
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <circle cx="12" cy="8" r="3.4" />
+                    <circle cx="12" cy="8" r="3.4"/>
 
-                        <path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" />
+                    <path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/>
 
                     </svg>
 
@@ -344,28 +422,33 @@
                 </a>
 
 
-                <a class="nav__item" href="configuracion.html">
+            <a class="nav__item" href="configuracion.html">
 
-                    <svg class="nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <svg
+                    class="nav__icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
 
-                        <circle cx="12" cy="12" r="3" />
+                    <circle cx="12" cy="12" r="3"/>
 
-                        <path
-                            d="M19.4 13.5a7.4 7.4 0 0 0 0-3l1.8-1.4-1.9-3.3-2.1.7a7.3 7.3 0 0 0-2.6-1.5L14.2 3h-4.4l-.4 2a7.3 7.3 0 0 0-2.6 1.5l-2.1-.7-1.9 3.3L4.6 10.5a7.4 7.4 0 0 0 0 3l-1.8 1.4 1.9 3.3 2.1-.7c.75.66 1.63 1.17 2.6 1.5l.4 2h4.4l.4-2a7.3 7.3 0 0 0 2.6-1.5l2.1.7 1.9-3.3-1.8-1.4Z" />
+                    <path d="M19.4 13.5a7.4 7.4 0 0 0 0-3l1.8-1.4-1.9-3.3-2.1.7a7.3 7.3 0 0 0-2.6-1.5L14.2 3h-4.4l-.4 2a7.3 7.3 0 0 0-2.6 1.5l-2.1-.7-1.9 3.3L4.6 10.5a7.4 7.4 0 0 0 0 3l-1.8 1.4 1.9 3.3 2.1-.7c.75.66 1.63 1.17 2.6 1.5l.4 2h4.4l.4-2a7.3 7.3 0 0 0 2.6-1.5l2.1.7 1.9-3.3-1.8-1.4Z"/>
 
                     </svg>
 
-                    <span class="nav__label">
-                        Configuracion
-                    </span>
+                <span class="nav__label">
+                    Configuracion
+                </span>
 
                 </a>
 
 
-            </nav>
+        </nav>
 
 
-            <!-- BOTÓN CONTRAER -->
+        <!-- BOTÓN CONTRAER -->
 
             <div class="sidebar__footer">
 
@@ -377,9 +460,9 @@
 
                     </svg>
 
-                    <span>
-                        Contraer menu
-                    </span>
+                <span>
+                    Contraer menu
+                </span>
 
                 </button>
 
@@ -395,7 +478,7 @@
         <div class="app-main">
 
 
-            <!-- BARRA SUPERIOR -->
+        <!-- BARRA SUPERIOR -->
 
             <header class="topbar">
 
@@ -425,15 +508,24 @@
 
                 <div class="topbar__right">
 
-                    <button class="topbar__icon-btn" type="button" aria-label="Notificaciones">
+                <button
+                    class="topbar__icon-btn"
+                    type="button"
+                    aria-label="Notificaciones"
+                >
 
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
+                    <svg
+                        width="19"
+                        height="19"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                    >
 
-                            <path
-                                d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z" />
+                        <path d="M12 3.5c-4 0-4.5 3.4-4.5 6.2 0 3-1 4.5-1.8 5.3h12.6c-.8-.8-1.8-2.3-1.8-5.3 0-2.8-.5-6.2-4.5-6.2Z"/>
 
-                            <path d="M10 18a2 2 0 0 0 4 0" />
+                        <path d="M10 18a2 2 0 0 0 4 0"/>
 
                         </svg>
 
@@ -508,7 +600,7 @@
                 </section>
 
 
-                <!-- ==========================================
+            <!-- ==========================================
                  FORMULARIO DE INGRESO
                  ========================================== -->
 
@@ -525,7 +617,7 @@
 
                     <div class="panel__body">
 
-                        <form id="ingresoForm">
+                    <form id="ingresoForm">
 
 
                             <div class="filters">
@@ -609,20 +701,23 @@
 
                                 <!-- BOTÓN -->
 
-                                <button class="btn btn--primary" type="submit">
+                            <button
+                                class="btn btn--primary"
+                                type="submit"
+                            >
 
-                                    Registrar
+                                Registrar
 
-                                </button>
+                            </button>
 
 
-                            </div>
+                        </div>
 
 
                             <div class="status-message" id="statusMessage"></div>
 
 
-                        </form>
+                    </form>
 
                     </div>
 
@@ -633,7 +728,7 @@
                  FILTROS
                  ========================================== -->
 
-                <section class="panel">
+            <section class="panel">
 
 
                     <div class="panel__header">
@@ -699,25 +794,29 @@
                             </div>
 
 
-                            <button class="btn btn--secondary" type="button" id="limpiarFiltros">
+                        <button
+                            class="btn btn--secondary"
+                            type="button"
+                            id="limpiarFiltros"
+                        >
 
-                                Limpiar
+                            Limpiar
 
-                            </button>
+                        </button>
 
 
-                        </div>
+                    </div>
 
                     </div>
 
                 </section>
 
 
-                <!-- ==========================================
+            <!-- ==========================================
                  TABLA DE INGRESOS
                  ========================================== -->
 
-                <section class="panel">
+            <section class="panel">
 
 
                     <div class="panel__header">
@@ -730,9 +829,9 @@
 
                         </div>
 
-                        <span class="select-chip">
-                            Datos de prueba
-                        </span>
+                    <span class="select-chip">
+                        Datos de prueba
+                    </span>
 
                     </div>
 
@@ -741,7 +840,7 @@
 
                         <div style="overflow-x: auto;">
 
-                            <table class="data-table">
+                        <table class="data-table">
 
 
                                 <thead>
@@ -780,199 +879,208 @@
                                 <tbody id="entriesBody">
 
 
-                                    <tr>
+                                <tr>
 
-                                        <td>
+                                    <td>
 
-                                            <div class="person-cell">
+                                        <div class="person-cell">
 
-                                                <span class="person-cell__avatar" aria-hidden="true"></span>
+                                            <span
+                                                class="person-cell__avatar"
+                                                aria-hidden="true"
+                                            ></span>
 
-                                                <div>
+                                            <div>
 
-                                                    <div class="person-cell__name">
-                                                        Trabajador 01
-                                                    </div>
+                                                <div class="person-cell__name">
+                                                    Trabajador 01
+                                                </div>
 
-                                                    <div class="person-cell__meta">
-                                                        Empresa A
-                                                    </div>
-
+                                                <div class="person-cell__meta">
+                                                    Empresa A
                                                 </div>
 
                                             </div>
 
-                                        </td>
+                                        </div>
+
+                                    </td>
 
 
-                                        <td>
+                                    <td>
 
-                                            <div class="cell-title">
-                                                Propiedad 05
-                                            </div>
+                                        <div class="cell-title">
+                                            Propiedad 05
+                                        </div>
 
-                                            <div class="cell-meta">
-                                                Casa Quinta
-                                            </div>
+                                        <div class="cell-meta">
+                                            Casa Quinta
+                                        </div>
 
-                                        </td>
-
-
-                                        <td>
-                                            Mantenimiento de jardines
-                                        </td>
+                                    </td>
 
 
-                                        <td>
-                                            08:15
-                                        </td>
+                                    <td>
+                                        Mantenimiento de jardines
+                                    </td>
 
 
-                                        <td>
-                                            –
-                                        </td>
+                                    <td>
+                                        08:15
+                                    </td>
 
 
-                                        <td>
+                                    <td>
+                                        –
+                                    </td>
 
-                                            <span class="badge badge--inside">
-                                                Dentro
-                                            </span>
 
-                                        </td>
+                                    <td>
+
+                                        <span class="badge badge--inside">
+                                            Dentro
+                                        </span>
+
+                                    </td>
 
                                     </tr>
 
 
-                                    <tr>
+                                <tr>
 
-                                        <td>
+                                    <td>
 
-                                            <div class="person-cell">
+                                        <div class="person-cell">
 
-                                                <span class="person-cell__avatar" aria-hidden="true"></span>
+                                            <span
+                                                class="person-cell__avatar"
+                                                aria-hidden="true"
+                                            ></span>
 
-                                                <div>
+                                            <div>
 
-                                                    <div class="person-cell__name">
-                                                        Trabajador 02
-                                                    </div>
+                                                <div class="person-cell__name">
+                                                    Trabajador 02
+                                                </div>
 
-                                                    <div class="person-cell__meta">
-                                                        Empresa B
-                                                    </div>
-
+                                                <div class="person-cell__meta">
+                                                    Empresa B
                                                 </div>
 
                                             </div>
 
-                                        </td>
+                                        </div>
+
+                                    </td>
 
 
-                                        <td>
+                                    <td>
 
-                                            <div class="cell-title">
-                                                Propiedad 12
-                                            </div>
+                                        <div class="cell-title">
+                                            Propiedad 12
+                                        </div>
 
-                                            <div class="cell-meta">
-                                                Casa Principal
-                                            </div>
+                                        <div class="cell-meta">
+                                            Casa Principal
+                                        </div>
 
-                                        </td>
-
-
-                                        <td>
-                                            Instalacion electrica
-                                        </td>
+                                    </td>
 
 
-                                        <td>
-                                            09:30
-                                        </td>
+                                    <td>
+                                        Instalacion electrica
+                                    </td>
 
 
-                                        <td>
-                                            –
-                                        </td>
+                                    <td>
+                                        09:30
+                                    </td>
 
 
-                                        <td>
-
-                                            <span class="badge badge--inside">
-                                                Dentro
-                                            </span>
-
-                                        </td>
-
-                                    </tr>
+                                    <td>
+                                        –
+                                    </td>
 
 
-                                    <tr>
+                                    <td>
 
-                                        <td>
+                                        <span class="badge badge--inside">
+                                            Dentro
+                                        </span>
 
-                                            <div class="person-cell">
+                                    </td>
 
-                                                <span class="person-cell__avatar" aria-hidden="true"></span>
+                                </tr>
 
-                                                <div>
 
-                                                    <div class="person-cell__name">
-                                                        Trabajador 03
-                                                    </div>
+                                <tr>
 
-                                                    <div class="person-cell__meta">
-                                                        Empresa C
-                                                    </div>
+                                    <td>
 
+                                        <div class="person-cell">
+
+                                            <span
+                                                class="person-cell__avatar"
+                                                aria-hidden="true"
+                                            ></span>
+
+                                            <div>
+
+                                                <div class="person-cell__name">
+                                                    Trabajador 03
+                                                </div>
+
+                                                <div class="person-cell__meta">
+                                                    Empresa C
                                                 </div>
 
                                             </div>
 
-                                        </td>
+                                        </div>
+
+                                    </td>
 
 
-                                        <td>
+                                    <td>
 
-                                            <div class="cell-title">
-                                                Propiedad 18
-                                            </div>
+                                        <div class="cell-title">
+                                            Propiedad 18
+                                        </div>
 
-                                            <div class="cell-meta">
-                                                Casa Campestre
-                                            </div>
+                                        <div class="cell-meta">
+                                            Casa Campestre
+                                        </div>
 
-                                        </td>
-
-
-                                        <td>
-                                            Mantenimiento general
-                                        </td>
+                                    </td>
 
 
-                                        <td>
-                                            07:45
-                                        </td>
+                                    <td>
+                                        Mantenimiento general
+                                    </td>
 
 
-                                        <td>
-                                            12:20
-                                        </td>
+                                    <td>
+                                        07:45
+                                    </td>
 
 
-                                        <td>
-
-                                            <span class="badge badge--out">
-                                                Salida registrada
-                                            </span>
-
-                                        </td>
-
-                                    </tr>
+                                    <td>
+                                        12:20
+                                    </td>
 
 
-                                </tbody>
+                                    <td>
+
+                                        <span class="badge badge--out">
+                                            Salida registrada
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
 
                             </table>
 
@@ -994,24 +1102,56 @@
      JAVASCRIPT
      ========================================== -->
 
-    <script>
+<script>
 
 
-        // ==========================================
-        // SIDEBAR
-        // ==========================================
+    // ==========================================
+    // SIDEBAR
+    // ==========================================
 
         const appShell =
             document.getElementById("appShell");
 
 
-        const collapseBtn =
-            document.getElementById("collapseBtn");
+    const collapseBtn =
+        document.getElementById("collapseBtn");
 
 
-        const menuBtn =
-            document.getElementById("menuBtn");
+    const menuBtn =
+        document.getElementById("menuBtn");
 
+    const nuevoIngresoBtn =
+        document.getElementById("nuevoIngresoBtn");
+
+    const formularioPanel =
+        document.getElementById("formularioPanel");
+
+    const ingresoForm =
+        document.getElementById("ingresoForm");
+
+    const entriesBody =
+        document.getElementById("entriesBody");
+
+    const statusMessage =
+        document.getElementById("statusMessage");
+
+
+    const buscarTrabajador =
+        document.getElementById("buscarTrabajador");
+
+    const buscarPropiedad =
+        document.getElementById("buscarPropiedad");
+
+    const buscarEstado =
+        document.getElementById("buscarEstado");
+
+    const limpiarFiltros =
+        document.getElementById("limpiarFiltros");
+
+
+    // ==========================================
+    // SIDEBAR
+    // ==========================================
 
         function toggleSidebar() {
 
@@ -1032,27 +1172,27 @@
         );
 
 
-        // ==========================================
-        // FORMULARIO DE NUEVO INGRESO
-        // ==========================================
+    // ==========================================
+    // FORMULARIO DE NUEVO INGRESO
+    // ==========================================
 
-        const nuevoIngresoBtn =
-            document.getElementById("nuevoIngresoBtn");
-
-
-        const formularioPanel =
-            document.getElementById("formularioPanel");
+    const nuevoIngresoBtn =
+        document.getElementById("nuevoIngresoBtn");
 
 
-        nuevoIngresoBtn.addEventListener(
-            "click",
-            function () {
+    const formularioPanel =
+        document.getElementById("formularioPanel");
+
+
+    nuevoIngresoBtn.addEventListener(
+        "click",
+        function() {
 
                 if (
                     formularioPanel.style.display === "none"
                 ) {
 
-                    formularioPanel.style.display = "block";
+                formularioPanel.style.display = "block";
 
                     nuevoIngresoBtn.textContent =
                         "Cancelar";
@@ -1061,10 +1201,10 @@
 
                 else {
 
-                    formularioPanel.style.display = "none";
+                formularioPanel.style.display = "none";
 
-                    nuevoIngresoBtn.innerHTML =
-                        `
+                nuevoIngresoBtn.innerHTML =
+                    `
                     <svg
                         width="16"
                         height="16"
@@ -1078,7 +1218,7 @@
                     </svg>
 
                     Registrar ingreso
-                    `;
+                `;
 
                 }
 
@@ -1086,213 +1226,249 @@
         );
 
 
-        // ==========================================
-        // REGISTRAR INGRESO
-        // ==========================================
+    // ==========================================
+    // REGISTRAR INGRESO
+    // ==========================================
 
-        const ingresoForm =
-            document.getElementById("ingresoForm");
+    const ingresoForm =
+        document.getElementById("ingresoForm");
 
+        try {
 
-        const entriesBody =
-            document.getElementById("entriesBody");
-
-
-        const statusMessage =
-            document.getElementById("statusMessage");
+    const entriesBody =
+        document.getElementById("entriesBody");
 
 
-        ingresoForm.addEventListener(
-            "submit",
-            function (event) {
+    const statusMessage =
+        document.getElementById("statusMessage");
 
-                event.preventDefault();
+                throw new Error(
+                    "No se pudieron cargar los ingresos."
+                );
 
+    ingresoForm.addEventListener(
+        "submit",
+        function(event) {
 
-                const trabajador =
-                    document.getElementById("trabajador").value;
-
-
-                const propiedad =
-                    document.getElementById("propiedad").value;
-
-
-                const actividad =
-                    document.getElementById("actividad").value;
+            event.preventDefault();
 
 
-                // Obtener hora actual
-
-                const ahora =
-                    new Date();
+            const trabajador =
+                document.getElementById("trabajador").value;
 
 
-                const hora =
-                    ahora.toLocaleTimeString(
-                        "es-CO",
-                        {
-                            hour: "2-digit",
-                            minute: "2-digit"
-                        }
-                    );
+            const propiedad =
+                document.getElementById("propiedad").value;
 
 
-                // Crear nueva fila
+            const actividad =
+                document.getElementById("actividad").value;
+
+
+            // Obtener hora actual
+
+            const ahora =
+                new Date();
+
+
+            const hora =
+                ahora.toLocaleTimeString(
+                    "es-CO",
+                    {
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    }
+                );
+
+
+            // Crear nueva fila
 
                 const fila =
                     document.createElement("tr");
 
 
+                const claseEstado =
+                    ingreso.estado === "Dentro"
+                        ? "badge--inside"
+                        : "badge--out";
+
+
+                let botonSalida = "";
+
+
+                if (
+                    ingreso.estado === "Dentro"
+                ) {
+
+                    botonSalida = `
+
+                        <button
+                            type="button"
+                            class="btn btn--secondary btn-salida"
+                            data-id="${ingreso.id}"
+                        >
+                            Registrar salida
+                        </button>
+
+                    `;
+
+                }
+
+
                 fila.innerHTML = `
 
-                <td>
+                    <td>
 
-                    <div class="person-cell">
+                        <div class="person-cell">
 
-                        <span
-                            class="person-cell__avatar"
-                            aria-hidden="true"
-                        ></span>
+                            <span
+                                class="person-cell__avatar"
+                                aria-hidden="true"
+                            ></span>
 
-                        <div>
+                            <div>
 
-                            <div class="person-cell__name">
-                                ${trabajador}
-                            </div>
+                                <div class="person-cell__name">
+                                    ${ingreso.trabajador}
+                                </div>
 
-                            <div class="person-cell__meta">
-                                Registro manual
+                                <div class="person-cell__meta">
+                                    ${ingreso.empresa || "Registro manual"}
+                                </div>
+
                             </div>
 
                         </div>
 
-                    </div>
-
-                </td>
+                    </td>
 
 
-                <td>
+                    <td>
 
-                    <div class="cell-title">
-                        ${propiedad}
-                    </div>
+                        <div class="cell-title">
+                            ${ingreso.propiedad}
+                        </div>
 
-                </td>
-
-
-                <td>
-                    ${actividad}
-                </td>
+                    </td>
 
 
-                <td>
-                    ${hora}
-                </td>
+                    <td>
+                        ${ingreso.actividad}
+                    </td>
 
 
-                <td>
-                    –
-                </td>
+                    <td>
+                        ${ingreso.horaIngreso}
+                    </td>
 
 
-                <td>
-
-                    <span class="badge badge--inside">
-                        Dentro
-                    </span>
-
-                </td>
-
-            `;
+                    <td>
+                        ${ingreso.horaSalida || "–"}
+                    </td>
 
 
-                // Agregar al principio
+                    <td>
 
-                entriesBody.prepend(fila);
+                        <span
+                            class="badge ${claseEstado}"
+                        >
+                            ${ingreso.estado}
+                        </span>
+
+                        ${botonSalida}
+
+                    </td>
+
+                `;
 
 
-                // Mostrar mensaje
+            // Agregar al principio
 
-                statusMessage.textContent =
-                    "Ingreso registrado correctamente.";
-
-
-                statusMessage.className =
-                    "status-message success";
+            entriesBody.prepend(fila);
 
 
-                // Limpiar formulario
+            // Mostrar mensaje
+
+            statusMessage.textContent =
+                "Ingreso registrado correctamente.";
+
+
+            statusMessage.className =
+                "status-message success";
+
+
+            // Limpiar formulario
 
                 ingresoForm.reset();
 
 
-                // Ocultar mensaje después de unos segundos
+            // Ocultar mensaje después de unos segundos
 
-                setTimeout(
-                    function () {
+            setTimeout(
+                function() {
 
-                        statusMessage.style.display =
-                            "none";
+                    statusMessage.style.display =
+                        "none";
 
-                    },
-                    3000
-                );
+                },
+                3000
+            );
 
-            }
-        );
-
-
-        // ==========================================
-        // FILTROS
-        // ==========================================
-
-        const buscarTrabajador =
-            document.getElementById("buscarTrabajador");
+        }
+    );
 
 
-        const buscarPropiedad =
-            document.getElementById("buscarPropiedad");
+    // ==========================================
+    // FILTROS
+    // ==========================================
+
+    const buscarTrabajador =
+        document.getElementById("buscarTrabajador");
 
 
-        const buscarEstado =
-            document.getElementById("buscarEstado");
+    const buscarPropiedad =
+        document.getElementById("buscarPropiedad");
+
+
+    const buscarEstado =
+        document.getElementById("buscarEstado");
 
 
         function filtrarIngresos() {
 
-            const trabajador =
-                buscarTrabajador.value.toLowerCase();
+        const trabajador =
+            buscarTrabajador.value.toLowerCase();
 
 
-            const propiedad =
-                buscarPropiedad.value.toLowerCase();
+        const propiedad =
+            buscarPropiedad.value.toLowerCase();
 
 
-            const estado =
-                buscarEstado.value.toLowerCase();
+        const estado =
+            buscarEstado.value.toLowerCase();
 
 
-            const filas =
-                entriesBody.querySelectorAll("tr");
+        const filas =
+            entriesBody.querySelectorAll("tr");
 
 
-            filas.forEach(
-                function (fila) {
+        filas.forEach(
+            function(fila) {
 
-                    const texto =
-                        fila.textContent.toLowerCase();
-
-
-                    const coincideTrabajador =
-                        texto.includes(trabajador);
+                const texto =
+                    fila.textContent.toLowerCase();
 
 
-                    const coincidePropiedad =
-                        texto.includes(propiedad);
+                const coincideTrabajador =
+                    texto.includes(trabajador);
 
 
-                    const coincideEstado =
-                        texto.includes(estado);
+                const coincidePropiedad =
+                    texto.includes(propiedad);
+
+
+                const coincideEstado =
+                    texto.includes(estado);
 
 
                     if (
@@ -1307,7 +1483,7 @@
 
                     else {
 
-                        fila.style.display = "none";
+                    fila.style.display = "none";
 
                     }
 
@@ -1339,23 +1515,29 @@
         // LIMPIAR FILTROS
         // ==========================================
 
-        document
-            .getElementById("limpiarFiltros")
-            .addEventListener(
-                "click",
-                function () {
+    document
+        .getElementById("limpiarFiltros")
+        .addEventListener(
+            "click",
+            function() {
 
-                    buscarTrabajador.value = "";
+                buscarTrabajador.value = "";
 
-                    buscarPropiedad.value = "";
+                buscarPropiedad.value = "";
 
-                    buscarEstado.value = "";
+                buscarEstado.value = "";
 
-                    filtrarIngresos();
+                filtrarIngresos();
 
-                }
-            );
+            }
+        );
 
+
+    // ==========================================
+    // INICIAR
+    // ==========================================
+
+    cargarIngresos();
 
     </script>
 
