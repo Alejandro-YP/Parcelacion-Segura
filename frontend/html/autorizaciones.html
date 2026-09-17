@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autorizaciones - Parcelacion Segura</title>
+  <link rel="stylesheet" href="../css/dashboard-style.css">
+</head>
+
+<body>
+
+  <div class="app-shell" id="appShell">
+
+    <!-- SIDEBAR: identica a dashboard.html, salvo el nav__item activo. -->
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+        <div class="sidebar__brand-mark" aria-hidden="true">
+          <img src="../imgs/menu-secure.png" alt="">
+        </div>
+        <span class="sidebar__brand-name">Parcelacion<br>Segura</span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Navegacion principal">
+        <a class="nav__item" href="dashboard.html" data-page="dashboard">
+          <img class="nav__icon" src="../imgs/menu-dashboard.png" alt="">
+          <span class="nav__label">Dashboard</span>
+        </a>
+
+        <a class="nav__item" href="trabajadores.html" data-page="trabajadores">
+          <img class="nav__icon" src="../imgs/menu-trabajadores.png" alt="">
+          <span class="nav__label">Trabajadores</span>
+        </a>
+
+        <a class="nav__item is-active" href="autorizaciones.html" data-page="autorizaciones">
+          <img class="nav__icon" src="../imgs/menu-autorizacion.png" alt="">
+          <span class="nav__label">Autorizaciones</span>
+        </a>
+
+        <a class="nav__item" href="ingresos.html" data-page="ingresos">
+          <img class="nav__icon" src="../imgs/menu-ingresos.png" alt="">
+          <span class="nav__label">Ingresos</span>
+        </a>
+
+        <a class="nav__item" href="propiedades.html" data-page="propiedades">
+          <img class="nav__icon" src="../imgs/menu-propiedades.png" alt="">
+          <span class="nav__label">Propiedades</span>
+        </a>
+
+        <a class="nav__item" href="empresas.html" data-page="empresas">
+          <img class="nav__icon" src="../imgs/menu-empresa.png" alt="">
+          <span class="nav__label">Empresas</span>
+        </a>
+
+        <a class="nav__item" href="reportes.html" data-page="reportes">
+          <img class="nav__icon" src="../imgs/menu-reportes.png" alt="">
+          <span class="nav__label">Reportes</span>
+        </a>
+
+        <a class="nav__item" href="alertas.html" data-page="alertas">
+          <img class="nav__icon" src="../imgs/menu-alertas.png" alt="">
+          <span class="nav__label">Alertas</span>
+          <span class="nav__badge">2</span>
+        </a>
+
+        <a class="nav__item" href="usuarios.html" data-page="usuarios">
+          <img class="nav__icon" src="../imgs/menu-usuarios.png" alt="">
+          <span class="nav__label">Usuarios</span>
+        </a>
+
+        <a class="nav__item" href="configuracion.html" data-page="configuracion">
+          <img class="nav__icon" src="../imgs/menu-configuracion.png" alt="">
+          <span class="nav__label">Configuracion</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <button class="sidebar__collapse-btn" id="collapseBtn" type="button">
+          <img class="nav__icon" src="../imgs/menu-contraer.png" alt="">
+          <span>Contraer menu</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="app-main">
+
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="topbar__menu-btn" id="menuBtn" type="button" aria-label="Abrir/cerrar menu">
+            <img src="../imgs/menu-abrir.png" alt="">
+          </button>
+          <h1 class="topbar__title">Autorizaciones</h1>
+        </div>
+
+        <div class="topbar__right">
+          <button class="topbar__icon-btn" type="button" aria-label="Notificaciones">
+            <img src="../imgs/menu-alertas.png" alt="">
+            <span class="topbar__icon-dot"></span>
+          </button>
+          <div class="topbar__user">
+            <img class="topbar__avatar" src="../imgs/encabezado-user.png" alt="">
+            <div>
+              <div class="topbar__user-name">Administrador</div>
+              <div class="topbar__user-role">Porteria Principal</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="view" data-view="autorizaciones">
+
+        <!-- KPIs.
+           Los valores son estaticos (id="kpiHoy" etc.); autorizacion.js debe
+           calcularlos a partir de los datos reales y actualizar cada elemento. -->
+        <section class="kpi-grid" aria-label="Indicadores de autorizaciones">
+          <article class="kpi-card kpi-card--auth">
+            <div class="kpi-card__icon"><img src="../imgs/menu-autorizacion.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Autorizaciones hoy</div>
+              <div class="kpi-card__value" id="kpiHoy">0</div>
+              <div class="kpi-card__sub">Total autorizaciones</div>
+            </div>
+          </article>
+
+          <article class="kpi-card kpi-card--inside">
+            <div class="kpi-card__icon"><img src="../imgs/menu-trabajadores.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Activas ahora</div>
+              <div class="kpi-card__value" id="kpiActivas">0</div>
+              <div class="kpi-card__sub">Listas para ingresar</div>
+            </div>
+          </article>
+
+          <article class="kpi-card kpi-card--pending">
+            <div class="kpi-card__icon"><img src="../imgs/alerta-salida_pendiente.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Pendientes de salida</div>
+              <div class="kpi-card__value" id="kpiPendientes">0</div>
+              <div class="kpi-card__sub">Sin registrar salida</div>
+            </div>
+          </article>
+
+          <article class="kpi-card kpi-card--entries">
+            <div class="kpi-card__icon"><img src="../imgs/menu-ingresos.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Ingresos hoy</div>
+              <div class="kpi-card__value" id="kpiIngresos">0</div>
+              <div class="kpi-card__sub">Total de ingresos</div>
+            </div>
+          </article>
+        </section>
+
+        <section class="grid-main">
+
+          <div class="grid-main__col">
+            <section class="panel">
+              <div class="panel__header">
+                <h2 class="panel__title">Todas las autorizaciones</h2>
+                <button class="btn btn--primary" id="btnNueva" type="button">
+                  <img src="../imgs/agregar-usuario.png" alt="">
+                  Autorizar trabajador
+                </button>
+              </div>
+
+              <div class="toolbar">
+                <input id="buscador" type="text" class="search-input"
+                  placeholder="Buscar trabajador, propiedad o actividad...">
+                <select id="filtroEstado" class="select-chip filter-select">
+                  <option value="">Todos los estados</option>
+                  <option value="activa">Activas</option>
+                  <option value="dentro">Dentro</option>
+                  <option value="finalizada">Finalizadas</option>
+                </select>
+              </div>
+
+              <div class="panel__body" style="padding-top:0;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Trabajador</th>
+                      <th>Propiedad</th>
+                      <th>Actividad</th>
+                      <th>Ingreso</th>
+                      <th>Salida</th>
+                      <th>Estado</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <!-- LOGICA.
+                     autorizacion.js debe generar aqui una fila por cada autorizacion
+                     real, aplicando el filtro de texto y el filtro de estado. -->
+                  <tbody id="tbodyAutorizaciones"></tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <div class="grid-main__col">
+
+            <section class="panel">
+              <div class="cta-panel">
+                <div class="cta-panel__icon" aria-hidden="true">
+                  <img src="../imgs/agregar-usuario.png" alt="">
+                </div>
+                <h3 class="cta-panel__title">Nueva autorizacion</h3>
+                <p class="cta-panel__desc">Autoriza el ingreso de un trabajador a la parcelacion.</p>
+                <button class="btn btn--primary btn--block" id="btnNueva2" type="button">
+                  <img src="../imgs/agregar-usuario.png" alt="">
+                  Autorizar trabajador
+                </button>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel__header">
+                <h2 class="panel__title">Resumen</h2>
+              </div>
+              <div class="panel__body" style="padding-top:0;">
+                <ul class="report-list">
+                  <li class="report-item">
+                    <div class="report-item__icon"><img src="../imgs/menu-autorizacion.png" alt=""></div>
+                    <div class="report-item__name">Activas</div>
+                    <span class="badge badge--pending" id="resActivas">0</span>
+                  </li>
+                  <li class="report-item">
+                    <div class="report-item__icon"><img src="../imgs/menu-trabajadores.png" alt=""></div>
+                    <div class="report-item__name">Dentro</div>
+                    <span class="badge badge--inside" id="resDentro">0</span>
+                  </li>
+                  <li class="report-item">
+                    <div class="report-item__icon"><img src="../imgs/menu-reportes.png" alt=""></div>
+                    <div class="report-item__name">Finalizadas</div>
+                    <span class="badge badge--out" id="resFinal">0</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: nueva autorizacion.
+     LOGICA: autorizacion.js debe agregar/quitar la clase "is-open" en
+     #modalNueva para mostrarlo u ocultarlo (los botones btnNueva, btnNueva2
+     y btnCancelar deben disparar esa logica), y procesar el submit del
+     formulario para crear la autorizacion real. -->
+  <div class="modal-overlay" id="modalNueva">
+    <div class="modal">
+      <h2 style="margin-bottom: var(--space-4);">Nueva autorizacion</h2>
+      <form id="formAutorizacion">
+
+        <div class="form-group">
+          <label for="trabajador">Trabajador</label>
+          <select id="trabajador" required>
+            <option value="">Seleccionar trabajador...</option>
+            <option value="Trabajador 01|Empresa A">Trabajador 01 - Empresa A</option>
+            <option value="Trabajador 02|Empresa B">Trabajador 02 - Empresa B</option>
+            <option value="Trabajador 03|Empresa A">Trabajador 03 - Empresa A</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="propiedad">Propiedad</label>
+          <select id="propiedad" required>
+            <option value="">Seleccionar propiedad...</option>
+            <option value="Propiedad 05|Casa Quinta">Propiedad 05 - Casa Quinta</option>
+            <option value="Propiedad 12|Casa Principal">Propiedad 12 - Casa Principal</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="actividad">Actividad</label>
+          <input id="actividad" type="text" placeholder="Ej: Mantenimiento de jardines" required>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input id="fecha" type="date" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn--neutral" id="btnCancelar">Cancelar</button>
+          <button type="submit" class="btn btn--primary">Autorizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/autorizacion.js"></script>
+
+  <script>
+    // LOGICA DEL SIDEBAR (compartida con dashboard.html).
+    const appShell = document.getElementById('appShell');
+    const collapseBtn = document.getElementById('collapseBtn');
+    const menuBtn = document.getElementById('menuBtn');
+
+    function toggleSidebar() {
+      appShell.classList.toggle('is-collapsed');
+    }
+
+    collapseBtn.addEventListener('click', toggleSidebar);
+    menuBtn.addEventListener('click', toggleSidebar);
+  </script>
+
+</body>
+
+</html>

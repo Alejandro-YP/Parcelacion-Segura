@@ -1,0 +1,87 @@
+/* ==========================================================================
+   PARCELACION SEGURA - login-style.css
+   Estilos propios de la pagina de inicio de sesion.
+
+   Este archivo SOLO tiene el layout y los componentes del login.
+   Los colores, tipografia, radios y espaciados vienen de las variables
+   definidas en dashboard-style.css (seccion 1), asi que login.html debe
+   cargar SIEMPRE dashboard-style.css antes que este archivo:
+
+     <link rel="stylesheet" href="/frontend/css/dashboard-style.css">
+     <link rel="stylesheet" href="/frontend/css/login-style.css">
+   ========================================================================== */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: var(--color-bg);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-panel);
+}
+
+.login-card__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.login-card__mark {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--color-gold);
+  display: grid;
+  place-items: center;
+}
+
+.login-card__mark img {
+  width: 24px;
+  height: 24px;
+}
+
+.login-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  text-align: center;
+}
+
+.login-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+  text-align: center;
+  margin-top: var(--space-1);
+}
+
+/* El formulario reutiliza .form-group de dashboard-style.css para los
+   campos de Usuario y Contrasena; aqui solo se ajusta el espaciado. */
+.login-form .form-group {
+  margin-bottom: var(--space-4);
+}
+
+.login-message {
+  text-align: center;
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  min-height: 20px;
+}
+
+.login-message--ok {
+  color: var(--color-status-inside);
+}
+
+.login-message--error {
+  color: var(--color-status-alert);
+}
