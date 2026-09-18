@@ -4,18 +4,10 @@ const cors = require("cors");
 const app = express();
 
 
-// ==========================================
-// CONFIGURACIÓN
-// ==========================================
-
 app.use(cors());
 
 app.use(express.json());
 
-
-// ==========================================
-// RUTA DE PRUEBA
-// ==========================================
 
 app.get("/", (req, res) => {
 
@@ -26,16 +18,11 @@ app.get("/", (req, res) => {
 });
 
 
-// ==========================================
-// RF-01 - INICIO DE SESIÓN
-// ==========================================
-
 app.post("/login", (req, res) => {
 
     const { usuario, contrasena } = req.body;
 
 
-    // Verificar que los campos estén completos
 
     if (!usuario || !contrasena) {
 
@@ -48,9 +35,6 @@ app.post("/login", (req, res) => {
     }
 
 
-    // ==========================================
-    // USUARIO DE PRUEBA
-    // ==========================================
 
     if (
         usuario === "admin" &&
@@ -76,9 +60,6 @@ app.post("/login", (req, res) => {
     }
 
 
-    // ==========================================
-    // DATOS INCORRECTOS
-    // ==========================================
 
     return res.status(401).json({
 
@@ -88,10 +69,6 @@ app.post("/login", (req, res) => {
 
 });
 
-
-// ==========================================
-// INICIAR SERVIDOR
-// ==========================================
 
 const PORT = 3001;
 
