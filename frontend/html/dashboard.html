@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Parcelacion Segura</title>
+  <link rel="stylesheet" href="../css/dashboard-style.css">
+</head>
+
+<body>
+
+  <div class="app-shell" id="appShell">
+
+    <!-- SIDEBAR comun a todas las vistas del panel.
+       Marca con class="is-active" el nav__item de la vista actual. -->
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+        <div class="sidebar__brand-mark" aria-hidden="true">
+          <img src="../imgs/menu-secure.png">
+        </div>
+        <span class="sidebar__brand-name">Parcelacion<br>Segura</span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Navegacion principal">
+        <!-- LOGICA DE NAVEGACION.
+           Cada enlace debe llevar a la vista correspondiente.
+           La clase is-active debe cambiar segun la pagina actual. -->
+
+        <a class="nav__item is-active" href="dashboard.html" data-page="dashboard">
+          <img class="nav__icon" src="../imgs/menu-dashboard.png" alt="">
+          <span class="nav__label">Dashboard</span>
+        </a>
+
+        <a class="nav__item" href="trabajadores.html" data-page="trabajadores">
+          <img class="nav__icon" src="../imgs/menu-trabajadores.png" alt="">
+          <span class="nav__label">Trabajadores</span>
+        </a>
+
+        <a class="nav__item" href="autorizaciones.html" data-page="autorizaciones">
+          <img class="nav__icon" src="../imgs/menu-autorizacion.png" alt="">
+          <span class="nav__label">Autorizaciones</span>
+        </a>
+
+        <a class="nav__item" href="ingresos.html" data-page="ingresos">
+          <img class="nav__icon" src="../imgs/menu-ingresos.png" alt="">
+          <span class="nav__label">Ingresos</span>
+        </a>
+
+        <a class="nav__item" href="propiedades.html" data-page="propiedades">
+          <img class="nav__icon" src="../imgs/menu-propiedades.png" alt="">
+          <span class="nav__label">Propiedades</span>
+        </a>
+
+        <a class="nav__item" href="empresas.html" data-page="empresas">
+          <img class="nav__icon" src="../imgs/menu-empresa.png" alt="">
+          <span class="nav__label">Empresas</span>
+        </a>
+
+        <a class="nav__item" href="reportes.html" data-page="reportes">
+          <img class="nav__icon" src="../imgs/menu-reportes.png" alt="">
+          <span class="nav__label">Reportes</span>
+        </a>
+
+        <a class="nav__item" href="alertas.html" data-page="alertas">
+          <img class="nav__icon" src="../imgs/menu-alertas.png" alt="">
+          <span class="nav__label">Alertas</span>
+          <!-- LOGICA.
+             Este numero debe mostrar la cantidad real de alertas pendientes. -->
+          <span class="nav__badge">2</span>
+        </a>
+
+        <a class="nav__item" href="usuarios.html" data-page="usuarios">
+          <img class="nav__icon" src="../imgs/menu-usuarios.png" alt="">
+          <span class="nav__label">Usuarios</span>
+        </a>
+
+        <a class="nav__item" href="configuracion.html" data-page="configuracion">
+          <img class="nav__icon" src="../imgs/menu-configuracion.png" alt="">
+          <span class="nav__label">Configuracion</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <!-- LOGICA.
+           Este boton debe contraer o expandir el sidebar (ver script al final). -->
+        <button class="sidebar__collapse-btn" id="collapseBtn" type="button">
+          <img class="nav__icon" src="../imgs/menu-contraer.png" alt="">
+          <span>Contraer menu</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="app-main">
+
+      <header class="topbar">
+        <div class="topbar__left">
+          <!-- LOGICA.
+             Este boton debe abrir o cerrar el menu lateral en pantallas pequenas. -->
+          <button class="topbar__menu-btn" id="menuBtn" type="button" aria-label="Abrir/cerrar menu">
+            <img src="../imgs/menu-abrir.png" alt="">
+          </button>
+          <h1 class="topbar__title">Dashboard</h1>
+        </div>
+
+        <div class="topbar__right">
+          <!-- LOGICA.
+             Este boton debe abrir las notificaciones del usuario. -->
+          <button class="topbar__icon-btn" type="button" aria-label="Notificaciones">
+            <img src="../imgs/menu-alertas.png" alt="">
+            <!-- LOGICA.
+               El punto debe aparecer solo cuando existan notificaciones nuevas o pendientes. -->
+            <span class="topbar__icon-dot"></span>
+          </button>
+
+          <div class="topbar__user">
+            <!-- LOGICA.
+               La imagen y los datos deben corresponder al usuario que inicio sesion. -->
+            <img class="topbar__avatar" src="../imgs/encabezado-user.png" alt="">
+            <div>
+              <div class="topbar__user-name">Administrador</div>
+              <div class="topbar__user-role">Porteria Principal</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="view" data-view="dashboard">
+
+        <!-- KPIs.
+           Los valores actuales son estaticos, deben obtenerse de los datos reales del sistema. -->
+        <section class="kpi-grid" aria-label="Indicadores del dia">
+
+          <!-- LOGICA.
+             Cantidad de trabajadores que actualmente tienen un ingreso abierto (sin salida). -->
+          <article class="kpi-card kpi-card--inside">
+            <div class="kpi-card__icon"><img src="../imgs/menu-trabajadores.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Actualmente dentro</div>
+              <div class="kpi-card__value">2</div>
+              <div class="kpi-card__sub">Trabajadores</div>
+            </div>
+          </article>
+
+          <!-- LOGICA.
+             Total de ingresos registrados durante el dia actual. -->
+          <article class="kpi-card kpi-card--entries">
+            <div class="kpi-card__icon"><img src="../imgs/menu-ingresos.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Ingresos hoy</div>
+              <div class="kpi-card__value">2</div>
+              <div class="kpi-card__sub">Total de ingresos</div>
+            </div>
+          </article>
+
+          <!-- LOGICA.
+             Trabajadores con ingreso registrado que aun no tienen salida. -->
+          <article class="kpi-card kpi-card--pending">
+            <div class="kpi-card__icon"><img src="../imgs/alerta-salida_pendiente.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Pendientes de salida</div>
+              <div class="kpi-card__value">2</div>
+              <div class="kpi-card__sub">Sin registrar salida</div>
+            </div>
+          </article>
+
+          <!-- LOGICA.
+             Cantidad de autorizaciones registradas durante el dia actual.
+             Nota: se dejo el icono menu-reportes.png tal como estaba; si existe un
+             icono propio de autorizacion (por ejemplo menu-autorizacion.png, ya usado
+             en el sidebar) puede encajar mejor aqui. -->
+          <article class="kpi-card kpi-card--auth">
+            <div class="kpi-card__icon"><img src="../imgs/menu-reportes.png" alt=""></div>
+            <div>
+              <div class="kpi-card__label">Autorizaciones hoy</div>
+              <div class="kpi-card__value">2</div>
+              <div class="kpi-card__sub">Total autorizaciones</div>
+            </div>
+          </article>
+
+        </section>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="grid-main">
+
+          <div class="grid-main__col">
+
+            <!-- INGRESOS RECIENTES.
+               Las filas actuales son datos de ejemplo; deben generarse dinamicamente
+               desde los registros reales de ingresos. -->
+            <div class="panel">
+              <div class="panel__header">
+                <h2 class="panel__title">Ingresos recientes</h2>
+                <!-- LOGICA DE NAVEGACION: debe llevar a la pagina de ingresos. -->
+                <a class="panel__link" href="ingresos.html">Ver todos</a>
+              </div>
+
+              <div class="panel__body">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Trabajador</th>
+                      <th>Propiedad</th>
+                      <th>Actividad</th>
+                      <th>Ingreso</th>
+                      <th>Salida</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentEntriesBody">
+                    <!-- LOGICA.
+                       Reemplazar por filas generadas dinamicamente desde el backend.
+                       La cantidad de filas depende de los ingresos recientes disponibles. -->
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <img class="person-cell__avatar" src="../imgs/usuario.png" alt="">
+                          <div>
+                            <div class="person-cell__name">Trabajador 01</div>
+                            <div class="person-cell__meta">Empresa A</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="cell-title">Propiedad 05</div>
+                        <div class="cell-meta">Casa Quinta</div>
+                      </td>
+                      <td>Mantenimiento de jardines</td>
+                      <td>08:15</td>
+                      <td>-</td>
+                      <td><span class="badge badge--inside">Dentro</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person-cell">
+                          <img class="person-cell__avatar" src="../imgs/usuario.png" alt="">
+                          <div>
+                            <div class="person-cell__name">Trabajador 02</div>
+                            <div class="person-cell__meta">Empresa B</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="cell-title">Propiedad 12</div>
+                        <div class="cell-meta">Casa Principal</div>
+                      </td>
+                      <td>Instalacion electrica</td>
+                      <td>09:30</td>
+                      <td>-</td>
+                      <td><span class="badge badge--inside">Dentro</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- ACCESOS EN TIEMPO REAL.
+               Los datos deben actualizarse automaticamente; solo deben aparecer
+               personas que actualmente esten dentro de la parcelacion. -->
+            <div class="panel">
+              <div class="panel__header">
+                <h2 class="panel__title">
+                  Accesos en tiempo real
+                  <span class="live-header"><span class="live-dot"></span><span class="live-tag">En vivo</span></span>
+                </h2>
+              </div>
+              <p class="panel__subtitle">Personas actualmente dentro de la parcelacion</p>
+
+              <div class="panel__body">
+                <div class="live-grid" id="liveAccessGrid">
+                  <!-- LOGICA.
+                     Las tarjetas deben generarse dinamicamente y actualizarse cuando
+                     una persona ingrese o registre su salida. -->
+                  <article class="live-card">
+                    <div class="live-card__top">
+                      <img class="live-card__avatar" src="../imgs/usuario.png" alt="">
+                      <div>
+                        <div class="person-cell__name">Trabajador 01</div>
+                        <div class="person-cell__meta">Propiedad 05</div>
+                      </div>
+                    </div>
+                    <p class="live-card__activity">Actividad: Mantenimiento de jardines</p>
+                    <div class="live-card__time">
+                      <!-- Nota: se reutiliza alerta-salida_pendiente.png tal como estaba
+                         en el archivo original; si existe un icono de reloj dedicado,
+                         encajaria mejor aqui que uno de alerta. -->
+                      <img src="../imgs/alerta-salida_pendiente.png" alt="">
+                      Ingreso: 08:15
+                    </div>
+                    <span class="badge badge--inside">Dentro</span>
+                  </article>
+
+                  <article class="live-card">
+                    <div class="live-card__top">
+                      <img class="live-card__avatar" src="../imgs/usuario.png" alt="">
+                      <div>
+                        <div class="person-cell__name">Trabajador 02</div>
+                        <div class="person-cell__meta">Propiedad 12</div>
+                      </div>
+                    </div>
+                    <p class="live-card__activity">Actividad: Instalacion electrica</p>
+                    <div class="live-card__time">
+                      <img src="../imgs/alerta-salida_pendiente.png" alt="">
+                      Ingreso: 09:30
+                    </div>
+                    <span class="badge badge--inside">Dentro</span>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="grid-main__col">
+
+            <!-- CTA NUEVA AUTORIZACION.
+               El boton debe iniciar el proceso real de crear una nueva autorizacion. -->
+            <div class="panel cta-panel">
+              <div class="cta-panel__icon" aria-hidden="true">
+                <img src="../imgs/agregar-usuario.png" alt="">
+              </div>
+              <h2 class="cta-panel__title">Nueva autorizacion</h2>
+              <p class="cta-panel__desc">Autoriza el ingreso de un trabajador a la parcelacion.</p>
+              <!-- LOGICA: debe abrir el formulario de nueva autorizacion. -->
+              <button class="btn btn--primary btn--block" type="button"
+                onclick="window.location.href='autorizaciones.html?nueva=1'">
+                <img src="../imgs/agregar-usuario.png" alt="">
+                Autorizar trabajador
+              </button>
+            </div>
+
+            <!-- ALERTAS.
+               Las alertas actuales son datos de ejemplo; deben generarse desde los
+               eventos reales del sistema. -->
+            <div class="panel">
+              <div class="panel__header">
+                <h2 class="panel__title">Alertas</h2>
+                <!-- LOGICA: debe mostrar la cantidad real de alertas pendientes. -->
+                <span class="alert-count">2</span>
+              </div>
+
+              <div class="panel__body">
+                <ul class="alert-list" id="alertList">
+                  <!-- LOGICA.
+                     Generar dinamicamente segun los eventos registrados; la lista
+                     debe actualizarse cuando aparezcan o se resuelvan alertas. -->
+                  <li class="alert-item alert-item--critical">
+                    <span class="alert-item__icon" aria-hidden="true">
+                      <img src="../imgs/alerta-usuario.png" alt="">
+                    </span>
+                    <div>
+                      <div class="alert-item__title">Intento de ingreso sin autorizacion</div>
+                      <div class="alert-item__meta">Hoy, 10:15 - Porteria Principal</div>
+                    </div>
+                  </li>
+                  <li class="alert-item alert-item--warning">
+                    <span class="alert-item__icon" aria-hidden="true">
+                      <img src="../imgs/alerta-salida_pendiente.png" alt="">
+                    </span>
+                    <div>
+                      <div class="alert-item__title">Salida pendiente</div>
+                      <div class="alert-item__meta">2 trabajadores llevan mas de 8 horas dentro</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- GRAFICO.
+               Actualmente es una imagen estatica; debe reemplazarse por un grafico
+               generado con JavaScript y datos reales (por ejemplo Chart.js), que
+               cambie segun el periodo seleccionado en el selector de arriba. -->
+            <div class="panel">
+              <div class="panel__header">
+                <h2 class="panel__title">Accesos por dia</h2>
+                <!-- LOGICA: este selector debe permitir cambiar el periodo del grafico
+                   (esta semana / semana anterior / este mes). -->
+                <span class="select-chip">Esta semana</span>
+              </div>
+              <div class="panel__body">
+                <div class="chart-wrap">
+                  <!-- Nota: el nombre del archivo (grafico-de-torta.png) sugiere un
+                     grafico circular; para "accesos por dia" probablemente haga
+                     falta un grafico de lineas o de barras en su lugar. -->
+                  <img class="chart-image" src="../imgs/grafico-de-torta.png" alt="">
+                </div>
+              </div>
+            </div>
+
+            <!-- REPORTES RAPIDOS.
+               Deben generarse con informacion real del sistema. -->
+            <div class="panel">
+              <div class="panel__header">
+                <h2 class="panel__title">Reportes rapidos</h2>
+              </div>
+              <div class="panel__body">
+                <ul class="report-list">
+                  <li class="report-item">
+                    <span class="report-item__icon" aria-hidden="true">
+                      <img src="../imgs/menu-reportes.png" alt="">
+                    </span>
+                    <span class="report-item__name">Ingresos por propiedad</span>
+                    <!-- LOGICA: debe generar o descargar el reporte real. -->
+                    <a class="report-item__download" href="#" aria-label="Descargar reporte de ingresos por propiedad">
+                      <img src="../imgs/descargas.png" alt="">
+                    </a>
+                  </li>
+                  <li class="report-item">
+                    <span class="report-item__icon" aria-hidden="true">
+                      <img src="../imgs/menu-reportes.png" alt="">
+                    </span>
+                    <span class="report-item__name">Trabajadores actualmente dentro</span>
+                    <!-- LOGICA: debe generar o descargar el reporte real. -->
+                    <a class="report-item__download" href="#"
+                      aria-label="Descargar reporte de trabajadores actualmente dentro">
+                      <img src="../imgs/descargas.png" alt="">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // LOGICA DEL SIDEBAR.
+    // Debe poder contraerse y expandirse: en escritorio alterna ancho reducido,
+    // en movil funciona como panel lateral (ver reglas en dashboard-style.css).
+    const appShell = document.getElementById('appShell');
+    const collapseBtn = document.getElementById('collapseBtn');
+    const menuBtn = document.getElementById('menuBtn');
+
+    function toggleSidebar() {
+      appShell.classList.toggle('is-collapsed');
+    }
+
+    collapseBtn.addEventListener('click', toggleSidebar);
+    menuBtn.addEventListener('click', toggleSidebar);
+  </script>
+
+</body>
+
+</html>

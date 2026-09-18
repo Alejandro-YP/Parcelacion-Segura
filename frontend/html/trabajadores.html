@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajadores - Parcelacion Segura</title>
+    <link rel="stylesheet" href="../css/dashboard-style.css">
+</head>
+
+<body>
+
+    <div class="app-shell" id="appShell">
+        <aside class="sidebar">
+            <div class="sidebar__brand">
+                <div class="sidebar__brand-mark" aria-hidden="true">
+                    <img src="../imgs/menu-secure.png" alt="">
+                </div>
+                <span class="sidebar__brand-name">Parcelacion<br>Segura</span>
+            </div>
+
+            <nav class="sidebar__nav" aria-label="Navegacion principal">
+                <a class="nav__item" href="dashboard.html" data-page="dashboard">
+                    <img class="nav__icon" src="../imgs/menu-dashboard.png" alt="">
+                    <span class="nav__label">Dashboard</span>
+                </a>
+
+                <a class="nav__item is-active" href="trabajadores.html" data-page="trabajadores">
+                    <img class="nav__icon" src="../imgs/menu-trabajadores.png" alt="">
+                    <span class="nav__label">Trabajadores</span>
+                </a>
+
+                <a class="nav__item" href="autorizaciones.html" data-page="autorizaciones">
+                    <img class="nav__icon" src="../imgs/menu-autorizacion.png" alt="">
+                    <span class="nav__label">Autorizaciones</span>
+                </a>
+
+                <a class="nav__item" href="ingresos.html" data-page="ingresos">
+                    <img class="nav__icon" src="../imgs/menu-ingresos.png" alt="">
+                    <span class="nav__label">Ingresos</span>
+                </a>
+
+                <a class="nav__item" href="propiedades.html" data-page="propiedades">
+                    <img class="nav__icon" src="../imgs/menu-propiedades.png" alt="">
+                    <span class="nav__label">Propiedades</span>
+                </a>
+
+                <a class="nav__item" href="empresas.html" data-page="empresas">
+                    <img class="nav__icon" src="../imgs/menu-empresa.png" alt="">
+                    <span class="nav__label">Empresas</span>
+                </a>
+
+                <a class="nav__item" href="reportes.html" data-page="reportes">
+                    <img class="nav__icon" src="../imgs/menu-reportes.png" alt="">
+                    <span class="nav__label">Reportes</span>
+                </a>
+
+                <a class="nav__item" href="alertas.html" data-page="alertas">
+                    <img class="nav__icon" src="../imgs/menu-alertas.png" alt="">
+                    <span class="nav__label">Alertas</span>
+                    <span class="nav__badge">2</span>
+                </a>
+
+                <a class="nav__item" href="usuarios.html" data-page="usuarios">
+                    <img class="nav__icon" src="../imgs/menu-usuarios.png" alt="">
+                    <span class="nav__label">Usuarios</span>
+                </a>
+
+                <a class="nav__item" href="configuracion.html" data-page="configuracion">
+                    <img class="nav__icon" src="../imgs/menu-configuracion.png" alt="">
+                    <span class="nav__label">Configuracion</span>
+                </a>
+            </nav>
+
+            <div class="sidebar__footer">
+                <button class="sidebar__collapse-btn" id="collapseBtn" type="button">
+                    <img class="nav__icon" src="../imgs/menu-contraer.png" alt="">
+                    <span>Contraer menu</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="app-main">
+
+            <header class="topbar">
+                <div class="topbar__left">
+                    <button class="topbar__menu-btn" id="menuBtn" type="button" aria-label="Abrir/cerrar menu">
+                        <img src="../imgs/menu-abrir.png" alt="">
+                    </button>
+                    <h1 class="topbar__title">Trabajadores</h1>
+                </div>
+
+                <div class="topbar__right">
+                    <button class="topbar__icon-btn" type="button" aria-label="Notificaciones">
+                        <img src="../imgs/menu-alertas.png" alt="">
+                        <span class="topbar__icon-dot"></span>
+                    </button>
+                    <div class="topbar__user">
+                        <img class="topbar__avatar" src="../imgs/encabezado-user.png" alt="">
+                        <div>
+                            <div class="topbar__user-name">Administrador</div>
+                            <div class="topbar__user-role">Porteria Principal</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="view" data-view="trabajadores">
+
+                <!-- FORMULARIO DE REGISTRO.
+           Oculto por defecto (display:none inline); "Agregar trabajador" lo
+           muestra y "Cancelar" lo vuelve a ocultar (ver script al final).
+           trabajadores.js debe manejar el submit real (guardar/actualizar). -->
+                <section class="panel" id="formularioTrabajador" style="display:none;">
+                    <div class="panel__header">
+                        <h2 class="panel__title">Registrar trabajador</h2>
+                    </div>
+                    <div class="panel__body">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" placeholder="Ingrese el nombre completo">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="documento">Documento</label>
+                            <input type="text" id="documento" placeholder="Ingrese el documento">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="text" id="telefono" placeholder="Ingrese el telefono">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="actividad">Actividad</label>
+                            <input type="text" id="actividad" placeholder="Ingrese la actividad">
+                        </div>
+
+                        <div class="form-actions">
+                            <button id="btnCancelar" class="btn btn--neutral" type="button">Cancelar</button>
+                            <button id="btnGuardar" class="btn btn--primary" type="button">Guardar trabajador</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TABLA DE TRABAJADORES -->
+                <section class="panel">
+                    <div class="panel__header">
+                        <h2 class="panel__title">Trabajadores registrados</h2>
+                        <button id="btnAgregar" class="btn btn--primary" type="button">
+                            <img src="../imgs/agregar-usuario.png" alt="">
+                            Agregar trabajador
+                        </button>
+                    </div>
+
+                    <div class="toolbar">
+                        <input type="text" id="buscarTrabajador" class="search-input"
+                            placeholder="Buscar trabajador...">
+                    </div>
+
+                    <div class="panel__body" style="padding-top:0;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Documento</th>
+                                    <th>Telefono</th>
+                                    <th>Actividad</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <!-- LOGICA.
+                 trabajadores.js debe reemplazar esta fila de ejemplo por las
+                 filas reales, filtradas segun el texto de #buscarTrabajador. -->
+                            <tbody id="listaTrabajadores">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Juan Perez</td>
+                                    <td>123456789</td>
+                                    <td>3001234567</td>
+                                    <td>Construccion</td>
+                                    <td><span class="badge badge--inside">Activo</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn--neutral btn--sm btnEditar"
+                                                type="button">Editar</button>
+                                            <button class="btn btn--neutral btn--sm btnEliminar"
+                                                type="button">Eliminar</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="frontend/js/trabajadores.js"></script>
+
+    <script>
+        // LOGICA DEL SIDEBAR (compartida con el resto de vistas).
+        const appShell = document.getElementById('appShell');
+        const collapseBtn = document.getElementById('collapseBtn');
+        const menuBtn = document.getElementById('menuBtn');
+
+        function toggleSidebar() {
+            appShell.classList.toggle('is-collapsed');
+        }
+
+        collapseBtn.addEventListener('click', toggleSidebar);
+        menuBtn.addEventListener('click', toggleSidebar);
+
+        // LOGICA DEL FORMULARIO.
+        // Solo se encarga de mostrar/ocultar el panel; el guardado real de un
+        // trabajador (validar, enviar al backend, refrescar la tabla) debe
+        // implementarse en trabajadores.js dentro de btnGuardar.
+        const formularioTrabajador = document.getElementById('formularioTrabajador');
+        const btnAgregar = document.getElementById('btnAgregar');
+        const btnCancelar = document.getElementById('btnCancelar');
+
+        btnAgregar.addEventListener('click', () => {
+            formularioTrabajador.style.display = 'block';
+        });
+
+        btnCancelar.addEventListener('click', () => {
+            formularioTrabajador.style.display = 'none';
+        });
+    </script>
+
+</body>
+
+</html>
